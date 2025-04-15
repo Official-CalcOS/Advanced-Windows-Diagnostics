@@ -209,7 +209,7 @@ namespace DiagnosticToolAllInOne
         public string? Name { get; set; }
         public string? Vram { get; set; } // Reported VRAM
         public string? DriverVersion { get; set; }
-        public DateTime? DriverDate { get; set; }
+        public DateTime? DriverDate { get; set; } // Added for analysis
         public string? VideoProcessor { get; set; }
         public string? CurrentResolution { get; set; }
         public uint? CurrentHorizontalResolution { get; set; } // Raw value for easier Win11 check
@@ -269,10 +269,10 @@ namespace DiagnosticToolAllInOne
     {
         public string? Name { get; set; }
         public string? DisplayName { get; set; }
-        public string? State { get; set; }
-        public string? StartMode { get; set; }
+        public string? State { get; set; } // Running, Stopped, Paused etc.
+        public string? StartMode { get; set; } // Auto, Manual, Disabled
         public string? PathName { get; set; }
-        public string? Status { get; set; }
+        public string? Status { get; set; } // OK, Degraded etc.
     }
 
     public class StartupProgramInfo
@@ -375,6 +375,7 @@ namespace DiagnosticToolAllInOne
         public List<NetworkAdapterDetail>? Adapters { get; set; } = new();
         public List<ActivePortInfo>? ActiveTcpListeners { get; set; } = new();
         public List<ActivePortInfo>? ActiveUdpListeners { get; set; } = new();
+        public List<TcpConnectionInfo>? ActiveTcpConnections { get; set; } = new(); // Added
         public NetworkTestResults? ConnectivityTests { get; set; }
     }
 
@@ -383,6 +384,7 @@ namespace DiagnosticToolAllInOne
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Id { get; set; }
+        public int? InterfaceIndex { get; set; } // Added
         public NetworkInterfaceType Type { get; set; }
         public OperationalStatus Status { get; set; }
         public string? MacAddress { get; set; }
@@ -391,6 +393,9 @@ namespace DiagnosticToolAllInOne
         public List<string>? IpAddresses { get; set; } = new();
         public List<string>? Gateways { get; set; } = new();
         public List<string>? DnsServers { get; set; } = new();
+        public string? DnsSuffix { get; set; } // Added
+        public List<string>? WinsServers { get; set; } // Added
+        public DateTime? DriverDate { get; set; } // Added for analysis - requires WMI/Registry lookup
         public bool DhcpEnabled { get; set; } // May need WMI fallback
         public DateTime? DhcpLeaseObtained { get; set; } // May need WMI
         public DateTime? DhcpLeaseExpires { get; set; } // May need WMI
@@ -402,15 +407,31 @@ namespace DiagnosticToolAllInOne
         public string? Protocol { get; set; } // TCP/UDP
         public string? LocalAddress { get; set; }
         public int LocalPort { get; set; }
-        public int? OwningPid { get; set; } // Requires advanced API/PInvoke to reliably get PID for UDP/TCP listeners
-        public string? OwningProcessName { get; set; } // Also requires advanced API/PInvoke
+        // --- PID/Process lookup requires complex P/Invoke ---
+        public int? OwningPid { get; set; } = null; // Set to null or actual PID if lookup implemented
+        public string? OwningProcessName { get; set; } = "N/A (Lookup Not Implemented)"; // Indicate status
         public string? Error { get; set; } // If PID lookup failed or wasn't attempted
+    }
+
+    // Added for GetActiveTcpConnections
+    public class TcpConnectionInfo
+    {
+        public string? LocalAddress { get; set; }
+        public int LocalPort { get; set; }
+        public string? RemoteAddress { get; set; }
+        public int RemotePort { get; set; }
+        public TcpState State { get; set; }
+        // --- PID/Process lookup requires complex P/Invoke (GetExtendedTcpTable) ---
+        public int? OwningPid { get; set; } = null;
+        public string? OwningProcessName { get; set; } = "N/A (Lookup Not Implemented)";
+        public string? Error { get; set; }
     }
 
     public class NetworkTestResults
     {
         public PingResult? GatewayPing { get; set; }
         public List<PingResult>? DnsPings { get; set; } = new();
+        public DnsResolutionResult? DnsResolution { get; set; } // Added
         public List<TracerouteHop>? TracerouteResults { get; set; } // Only if requested
         public string? TracerouteTarget { get; set; }
     }
@@ -418,17 +439,31 @@ namespace DiagnosticToolAllInOne
     public class PingResult
     {
         public string? Target { get; set; }
-        public string? Status { get; set; }
+        public string? Status { get; set; } // IPStatus string or custom status like "Error", "Not Found"
         public long? RoundtripTimeMs { get; set; }
+        public string? ResolvedIpAddress { get; set; } // IP address resolved from target hostname
         public string? Error { get; set; }
     }
 
+    // Added
+    public class DnsResolutionResult
+    {
+        public string? Hostname { get; set; }
+        public bool Success { get; set; }
+        public List<string>? ResolvedIpAddresses { get; set; } = new();
+        public long? ResolutionTimeMs { get; set; }
+        public string? Error { get; set; }
+    }
+
+    // --- Moved from NetworkHelper.cs ---
+    // --- Also added Error property ---
     public class TracerouteHop
     {
         public int Hop { get; set; }
         public string? Address { get; set; }
         public long? RoundtripTimeMs { get; set; }
-        public string? Status { get; set; }
+        public string? Status { get; set; } // IPStatus string
+        public string? Error { get; set; } // Store error message if hop failed unusually
     }
 
 
@@ -441,7 +476,7 @@ namespace DiagnosticToolAllInOne
     public class EventEntry
     {
         public DateTime TimeGenerated { get; set; }
-        public string? EntryType { get; set; }
+        public string? EntryType { get; set; } // Error, Warning, Information etc.
         public string? Source { get; set; }
         public long InstanceId { get; set; }
         public string? Message { get; set; }
@@ -461,16 +496,19 @@ namespace DiagnosticToolAllInOne
         public NetworkInfo? Network { get; set; }
         public EventLogInfo? Events { get; set; }
         public AnalysisSummary? Analysis { get; set; }
-        // public AppConfiguration? Configuration { get; set; } // Placeholder for loaded config
+        // Include configuration used for the report
+        public AppConfiguration? Configuration { get; set; }
     }
 
     // Analysis Results
     public class AnalysisSummary : DiagnosticSection // Inherit for consistency if analysis can have errors
     {
-        public List<string> PotentialIssues { get; set; } = new();
+        public List<string> PotentialIssues { get; set; } = new(); // Use a class/struct for more detail?
         public List<string> Suggestions { get; set; } = new();
         public List<string> Info { get; set; } = new();
         public Windows11Readiness? Windows11Readiness { get; set; } // Specific section for Win11 results
+        // --- Added Configuration property ---
+        public AppConfiguration? Configuration { get; set; } // Store config used for this analysis
     }
 
     // NEW: Specific class to hold Windows 11 readiness check results
@@ -490,12 +528,40 @@ namespace DiagnosticToolAllInOne
 
     #endregion
 
-    // Placeholder for configuration settings if loaded from file
-    /*
+
+    #region Configuration Models (Example - for appsettings.json)
+
+    /* Example appsettings.json structure:
+    {
+      "AppConfiguration": {
+        "AnalysisThresholds": {
+          "HighMemoryUsagePercent": 90.0,
+          "ElevatedMemoryUsagePercent": 80.0,
+          "CriticalDiskSpacePercent": 5.0,
+          "LowDiskSpacePercent": 15.0,
+          "HighCpuUsagePercent": 95.0,
+          "ElevatedCpuUsagePercent": 80.0,
+          "HighDiskQueueLength": 5.0,
+          "MaxSystemLogErrorsIssue": 15,      // Increased from 10
+          "MaxSystemLogErrorsSuggestion": 5,  // Increased from 3
+          "MaxAppLogErrorsIssue": 20,         // Increased from 10
+          "MaxAppLogErrorsSuggestion": 7,   // Increased from 3
+          "MaxUptimeDaysSuggestion": 30,
+          "DriverAgeWarningYears": 2,
+          "MaxPingLatencyWarningMs": 100,
+          "MaxTracerouteHopLatencyWarningMs": 150
+        },
+        "NetworkSettings": {
+           "DefaultDnsTestHostname": "www.cloudflare.com" // Changed default
+        }
+      }
+    }
+    */
+
     public class AppConfiguration
     {
-        public AnalysisThresholds? AnalysisThresholds { get; set; }
-        // Add other settings as needed
+        public AnalysisThresholds AnalysisThresholds { get; set; } = new(); // Provide defaults
+        public NetworkSettings NetworkSettings { get; set; } = new();
     }
 
     public class AnalysisThresholds
@@ -503,7 +569,25 @@ namespace DiagnosticToolAllInOne
         public double HighMemoryUsagePercent { get; set; } = 90.0;
         public double ElevatedMemoryUsagePercent { get; set; } = 80.0;
         public double CriticalDiskSpacePercent { get; set; } = 5.0;
-        // etc.
+        public double LowDiskSpacePercent { get; set; } = 15.0;
+        public double HighCpuUsagePercent { get; set; } = 95.0;
+        public double ElevatedCpuUsagePercent { get; set; } = 80.0;
+        public double HighDiskQueueLength { get; set; } = 5.0;
+        public int MaxSystemLogErrorsIssue { get; set; } = 15; // Example default change
+        public int MaxSystemLogErrorsSuggestion { get; set; } = 5; // Example default change
+        public int MaxAppLogErrorsIssue { get; set; } = 20; // Example default change
+        public int MaxAppLogErrorsSuggestion { get; set; } = 7; // Example default change
+        public int MaxUptimeDaysSuggestion { get; set; } = 30;
+        public int DriverAgeWarningYears { get; set; } = 2; // Added
+        public long MaxPingLatencyWarningMs { get; set; } = 100; // Added
+        public long MaxTracerouteHopLatencyWarningMs { get; set; } = 150; // Added
     }
-    */
+
+     public class NetworkSettings
+     {
+         public string DefaultDnsTestHostname { get; set; } = "www.cloudflare.com"; // Added, changed default
+     }
+
+    #endregion
+
 }

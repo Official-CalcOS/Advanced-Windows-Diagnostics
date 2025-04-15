@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3>Developed by Jack Warren</h3>
-    <h1>Smart Business Advanced Windows Diagnostics</h1>
+    <header>
+        <h1>Smart Business Advanced Windows Diagnostics</h1>
+        <p class="tagline">Developed by Jack Warren</p> </header>
 
     <div id="controls">
         <label for="reportFile">Select Report JSON File:</label>
-        <input type="file" id="reportFile" accept=".json">
-        <div id="loading-status" style="margin-top: 10px;"></div> </div>
-
-
-    <div id="report-metadata" style="display: none;"> <h2>Report Details</h2>
-        <p><strong>Generated (UTC):</strong> <span id="timestamp"></span></p>
-        <p><strong>Ran as Admin:</strong> <span id="ran-as-admin"></span></p>
+        <input type="file" id="reportFile" accept=".json,application/json"> <div id="loading-status" class="status-message"></div>
     </div>
+
+    <div class="section collapsible">
+        <h2 class="collapsible-toggle">Report Details</h2>
+        <div class="collapsible-content" id="report-metadata">
+             <p><strong>Generated (UTC):</strong> <span id="timestamp">N/A</span></p>
+             <p><strong>Ran as Admin:</strong> <span id="ran-as-admin">N/A</span></p>
+             <p><strong>Configuration Used:</strong> <span id="config-source">N/A</span></p>
+        </div>
+    </div>
+
 
     <div id="report-sections">
-        <p>Please select a JSON report file using the button above.</p>
+        <p class="placeholder-text">Please select a JSON report file using the button above.</p>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Jack Warren. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

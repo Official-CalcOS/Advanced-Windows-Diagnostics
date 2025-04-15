@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "l4T1bC7ddXE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jack\\OneDrive\\Documents\\GitHub\\Advanced-Windows-Diagnostics\\DiagnosticToolAllInOne.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.4\\microsoft.extensions.configuration.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.4\\microsoft.extensions.configuration.abstractions.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.4\\microsoft.extensions.configuration.binder.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.4\\microsoft.extensions.configuration.fileextensions.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.4\\microsoft.extensions.configuration.json.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.4\\microsoft.extensions.fileproviders.abstractions.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.4\\microsoft.extensions.fileproviders.physical.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.4\\microsoft.extensions.filesystemglobbing.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.4\\microsoft.extensions.primitives.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.commandline\\2.0.0-beta4.22272.1\\system.commandline.2.0.0-beta4.22272.1.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.diagnostics.performancecounter\\8.0.0\\system.diagnostics.performancecounter.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.io.pipelines\\9.0.4\\system.io.pipelines.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.text.encodings.web\\9.0.4\\system.text.encodings.web.9.0.4.nupkg.sha512",
+    "C:\\Users\\jack\\.nuget\\packages\\system.text.json\\9.0.4\\system.text.json.9.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
