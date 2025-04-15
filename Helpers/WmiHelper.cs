@@ -49,8 +49,18 @@ namespace DiagnosticToolAllInOne.Helpers
             {
                 searcher?.Dispose();
                 results?.Dispose(); // Dispose if exception occurred after Get() but before return
-                string error = $"WMI Query Failed for {wmiClass} in {scope}. {mex.Message.Split('.')[0]} (Code: {mex.ErrorCode})";
-                Console.Error.WriteLine($"[WMI HELPER ERROR] {error}"); // Log detailed error internally
+                string errorMsg = mex.Message.Split('.')[0]; // Basic error message
+                // Check for common non-critical errors for specific scopes
+                if (mex.ErrorCode == ManagementStatus.NotFound || mex.ErrorCode == ManagementStatus.InvalidClass || mex.ErrorCode == ManagementStatus.InvalidNamespace) {
+                     if (scope.Equals(WMI_MS_TPM, StringComparison.OrdinalIgnoreCase) || scope.Equals(WMI_SECURITY_CENTER2, StringComparison.OrdinalIgnoreCase)) {
+                          // Treat as non-critical info for these scopes, indicating feature not present/available
+                          Console.WriteLine($"[WMI HELPER INFO] WMI query for {wmiClass} in {scope} returned: {mex.ErrorCode}. Feature likely unavailable.");
+                          return new WmiQueryResult(true, Results: null, ErrorMessage: $"{mex.ErrorCode} querying {wmiClass} in {scope}. Feature likely unavailable.");
+                     }
+                }
+                // Log other ManagementExceptions as errors
+                string error = $"WMI Query Failed for {wmiClass} in {scope}. {errorMsg} (Code: {mex.ErrorCode})";
+                Console.Error.WriteLine($"[WMI HELPER ERROR] {error}");
                 return new WmiQueryResult(false, ErrorMessage: error);
             }
             catch (UnauthorizedAccessException uaex)
@@ -66,14 +76,15 @@ namespace DiagnosticToolAllInOne.Helpers
                 searcher?.Dispose();
                 results?.Dispose();
                 uint errorCode = (uint)comEx.ErrorCode;
-                 // Don't treat common "Not Found" or "Service Disabled" for SecurityCenter2 as critical errors here, let caller decide.
-                bool ignoreError = (scope == @"root\SecurityCenter2" && (errorCode == 0x8004100E || errorCode == 0x80070422));
+                // Don't treat common "Not Found" or "Service Disabled" for SecurityCenter2/TPM as critical errors here, let caller decide.
+                bool ignoreError = (scope == WMI_SECURITY_CENTER2 && (errorCode == 0x8004100E || errorCode == 0x80070422 || errorCode == 0x80041010)) // Invalid Class for SC2
+                                || (scope == WMI_MS_TPM && (errorCode == 0x8004100E || errorCode == 0x80070422 || errorCode == 0x80041010)); // Invalid Class/Namespace for TPM
 
                 if (ignoreError)
                 {
-                    Console.WriteLine($"[WMI HELPER INFO] COM Error ignored for {wmiClass} in {scope}: {comEx.Message} (HRESULT: {comEx.HResult:X})");
+                    Console.WriteLine($"[WMI HELPER INFO] COM Error likely indicates feature/service disabled for {wmiClass} in {scope}: {comEx.Message} (HRESULT: {comEx.HResult:X})");
                     // Return success but with null results, indicating the query ran but found nothing relevant (expected in this case).
-                    return new WmiQueryResult(true, Results: null);
+                    return new WmiQueryResult(true, Results: null, ErrorMessage: $"COM Error (likely feature unavailable) for {wmiClass} in {scope}: HRESULT {comEx.HResult:X}");
                 }
                 else
                 {
@@ -92,8 +103,8 @@ namespace DiagnosticToolAllInOne.Helpers
             }
             finally
             {
-                 // Dispose the searcher, but NOT the results collection - the caller needs it.
                  searcher?.Dispose();
+                 // Caller MUST dispose the results collection passed in WmiQueryResult
             }
         }
 
@@ -136,44 +147,40 @@ namespace DiagnosticToolAllInOne.Helpers
                 {
                     onError(queryResult.ErrorMessage);
                 }
-                // Dispose results even if success is false but results somehow got populated before error
-                queryResult.Results?.Dispose();
+                queryResult.Results?.Dispose(); // Dispose if error or null results
                 return;
             }
 
             try
             {
-                if (queryResult.Results.Count == 0) return; // No objects to process
+                if (queryResult.Results.Count == 0) {
+                    // It's not an error if the query succeeded but returned no rows.
+                    // Log this case only if there was also an associated info message (e.g., feature unavailable)
+                    if (!string.IsNullOrEmpty(queryResult.ErrorMessage) && queryResult.Success) {
+                         onError(queryResult.ErrorMessage); // Pass informational message as error context
+                    }
+                    return;
+                }
 
                 foreach (ManagementBaseObject baseObj in queryResult.Results)
                 {
-                    using (ManagementObject obj = (ManagementObject)baseObj) // Cast and use 'using' for disposal
+                    using (ManagementObject obj = (ManagementObject)baseObj)
                     {
-                        try
-                        {
-                            processObject(obj);
-                        }
-                        catch (Exception processEx)
-                        {
-                            // Log errors during processing of a specific WMI object
-                            Console.Error.WriteLine($"[WMI HELPER] Exception during processing WMI object: {processEx.Message}");
-                            // Optionally pass this error up if needed: onError($"Error processing object: {processEx.Message}");
-                        }
+                        try { processObject(obj); }
+                        catch (Exception processEx) { Console.Error.WriteLine($"[WMI HELPER] Exception during processing WMI object: {processEx.Message}"); }
                     }
                 }
             }
             catch (ManagementException mex) // Error during enumeration
-            {
-                 onError($"Error enumerating WMI results: {mex.Message} (Code: {mex.ErrorCode})");
-            }
+            { onError($"Error enumerating WMI results: {mex.Message} (Code: {mex.ErrorCode})"); }
             catch (Exception ex) // Other errors during enumeration
-            {
-                onError($"Generic error processing WMI results: {ex.Message}");
-            }
+            { onError($"Generic error processing WMI results: {ex.Message}"); }
             finally
-            {
-                queryResult.Results.Dispose(); // Ensure the collection is always disposed
-            }
+            { queryResult.Results.Dispose(); } // Ensure the collection is always disposed
         }
+
+         // Constants used by multiple collectors moved here for consistency
+         internal const string WMI_MS_TPM = @"root\cimv2\Security\MicrosoftTpm";
+         internal const string WMI_SECURITY_CENTER2 = @"root\SecurityCenter2";
     }
 }

@@ -28,7 +28,6 @@ namespace DiagnosticToolAllInOne
         }
     }
 
-    // ... Rest of DataModels.cs remains the same as the previous version ...
     public class SystemInfo : DiagnosticSection
     {
         public OSInfo? OperatingSystem { get; set; }
@@ -45,7 +44,8 @@ namespace DiagnosticToolAllInOne
         public string? Name { get; set; }
         public string? Architecture { get; set; }
         public string? Version { get; set; }
-        public string? BuildNumber { get; set; }
+        public string? BuildNumber { get; set; } // Important for Win11 version check
+        public uint? BuildNumberUint => uint.TryParse(BuildNumber, out uint result) ? result : null; // Helper for easier comparison
         public DateTime? InstallDate { get; set; }
         public DateTime? LastBootTime { get; set; }
         public TimeSpan? Uptime { get; set; }
@@ -69,6 +69,8 @@ namespace DiagnosticToolAllInOne
         public string? Version { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public string? SerialNumber { get; set; }
+        // Could potentially add a property here indicating UEFI mode if reliably detectable via BIOS WMI info
+        // public string? BiosMode { get; set; } // Example: Legacy/UEFI (often needs registry/other checks)
     }
 
     public class BaseboardInfo
@@ -123,9 +125,9 @@ namespace DiagnosticToolAllInOne
     {
         public string? Name { get; set; }
         public string? Socket { get; set; }
-        public uint? Cores { get; set; }
+        public uint? Cores { get; set; } // Needed for Win11 Check
         public uint? LogicalProcessors { get; set; }
-        public uint? MaxSpeedMHz { get; set; }
+        public uint? MaxSpeedMHz { get; set; } // Needed for Win11 Check
         public string? L2Cache { get; set; }
         public string? L3Cache { get; set; }
     }
@@ -136,6 +138,7 @@ namespace DiagnosticToolAllInOne
         public string? Available { get; set; }
         public string? Used { get; set; }
         public double? PercentUsed { get; set; }
+        public ulong? TotalVisibleMemoryKB { get; set; } // Raw value from WMI for easier Win11 check
         public List<MemoryModuleInfo>? Modules { get; set; } = new();
     }
 
@@ -157,11 +160,14 @@ namespace DiagnosticToolAllInOne
         public string? Model { get; set; }
         public string? MediaType { get; set; }
         public string? InterfaceType { get; set; }
-        public string? Size { get; set; }
+        public string? Size { get; set; } // Formatted size
+        public ulong? SizeBytes { get; set; } // Raw size in bytes for easier Win11 check
         public uint? Partitions { get; set; }
         public string? SerialNumber { get; set; }
         public string? Status { get; set; } // Status from Win32_DiskDrive
         public SmartStatusInfo? SmartStatus { get; set; }
+        // Add property to indicate if this is the system disk (needs to be populated by collector/analysis)
+        public bool? IsSystemDisk { get; set; }
     }
 
     public class SmartStatusInfo
@@ -182,6 +188,8 @@ namespace DiagnosticToolAllInOne
         public string? Size { get; set; }
         public string? FreeSpace { get; set; }
         public double? PercentFree { get; set; }
+        public ulong? SizeBytes { get; set; } // Raw value if needed
+        public ulong? FreeSpaceBytes { get; set; } // Raw value if needed
     }
 
     public class VolumeInfo
@@ -204,7 +212,10 @@ namespace DiagnosticToolAllInOne
         public DateTime? DriverDate { get; set; }
         public string? VideoProcessor { get; set; }
         public string? CurrentResolution { get; set; }
+        public uint? CurrentHorizontalResolution { get; set; } // Raw value for easier Win11 check
+        public uint? CurrentVerticalResolution { get; set; } // Raw value for easier Win11 check
         public string? Status { get; set; }
+        // public string? WddmVersion { get; set; } // Difficult to get reliably via WMI/basic APIs
     }
 
     public class MonitorInfo
@@ -213,7 +224,10 @@ namespace DiagnosticToolAllInOne
         public string? DeviceID { get; set; }
         public string? Manufacturer { get; set; }
         public string? ReportedResolution { get; set; }
+        public uint? ScreenWidth { get; set; } // Raw value for easier Win11 check
+        public uint? ScreenHeight { get; set; } // Raw value for easier Win11 check
         public string? PpiLogical { get; set; }
+        // public double? DiagonalSizeInches { get; set; } // Difficult to get reliably
     }
 
     public class AudioDeviceInfo
@@ -277,6 +291,9 @@ namespace DiagnosticToolAllInOne
         public List<UserAccountInfo>? LocalUsers { get; set; } = new();
         public List<GroupInfo>? LocalGroups { get; set; } = new();
         public List<ShareInfo>? NetworkShares { get; set; } = new();
+        public TpmInfo? Tpm { get; set; } // Added for Win11 TPM check
+        public bool? IsSecureBootEnabled { get; set; } // Added for Win11 Secure Boot check
+        public string? BiosMode { get; set; } // Example: "Legacy", "UEFI". Can be determined via Secure Boot status or other means.
     }
 
     public class AntivirusInfo
@@ -317,6 +334,19 @@ namespace DiagnosticToolAllInOne
         public string? Path { get; set; }
         public string? Description { get; set; }
         public uint? Type { get; set; } // Disk Drive, Print Queue etc.
+    }
+
+    // NEW: Added for TPM Check (Win11)
+    public class TpmInfo
+    {
+        public bool? IsPresent { get; set; } = false; // Default to false
+        public bool? IsEnabled { get; set; } = false;
+        public bool? IsActivated { get; set; } = false;
+        public string? ManufacturerVersion { get; set; }
+        public string? ManufacturerIdTxt { get; set; }
+        public string? SpecVersion { get; set; } // Key for Win11 check (e.g., "2.0")
+        public string? Status { get; set; } // General status message ("Ready", "Not Ready", "Error", etc.)
+        public string? ErrorMessage { get; set; } // If collection failed
     }
 
 
@@ -431,6 +461,7 @@ namespace DiagnosticToolAllInOne
         public NetworkInfo? Network { get; set; }
         public EventLogInfo? Events { get; set; }
         public AnalysisSummary? Analysis { get; set; }
+        // public AppConfiguration? Configuration { get; set; } // Placeholder for loaded config
     }
 
     // Analysis Results
@@ -439,7 +470,40 @@ namespace DiagnosticToolAllInOne
         public List<string> PotentialIssues { get; set; } = new();
         public List<string> Suggestions { get; set; } = new();
         public List<string> Info { get; set; } = new();
+        public Windows11Readiness? Windows11Readiness { get; set; } // Specific section for Win11 results
+    }
+
+    // NEW: Specific class to hold Windows 11 readiness check results
+    public class Windows11Readiness
+    {
+        public bool? OverallResult { get; set; } // Null if checks incomplete, true if pass, false if fail
+        public List<Win11CheckResult> Checks { get; set; } = new();
+    }
+
+    public class Win11CheckResult
+    {
+        public string Requirement { get; set; } = string.Empty;
+        public string? Status { get; set; } // e.g., "Pass", "Fail", "Info", "Warning", "Check Manually", "Error"
+        public string? Details { get; set; } // e.g., "CPU Speed: 3.2 GHz", "TPM 2.0 Not Found", "Verify on MS website"
+        public string? ComponentChecked { get; set; } // e.g., "CPU", "TPM", "Storage"
     }
 
     #endregion
+
+    // Placeholder for configuration settings if loaded from file
+    /*
+    public class AppConfiguration
+    {
+        public AnalysisThresholds? AnalysisThresholds { get; set; }
+        // Add other settings as needed
+    }
+
+    public class AnalysisThresholds
+    {
+        public double HighMemoryUsagePercent { get; set; } = 90.0;
+        public double ElevatedMemoryUsagePercent { get; set; } = 80.0;
+        public double CriticalDiskSpacePercent { get; set; } = 5.0;
+        // etc.
+    }
+    */
 }

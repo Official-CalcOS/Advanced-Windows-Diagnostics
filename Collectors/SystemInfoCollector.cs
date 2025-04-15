@@ -1,23 +1,22 @@
 // Collectors/SystemInfoCollector.cs
 using System;
-using System.Management; // If needed directly, else use helper
+using System.Management;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
-using DiagnosticToolAllInOne.Helpers; // Use helpers
+using DiagnosticToolAllInOne.Helpers;
 
 namespace DiagnosticToolAllInOne.Collectors
 {
     [SupportedOSPlatform("windows")]
     public static class SystemInfoCollector
     {
-        // WMI/System Constants specific to this collector if needed
         private const string WMI_CIMV2 = @"root\cimv2";
 
-        public static Task<SystemInfo> CollectAsync(bool isAdmin) // Pass isAdmin flag
+        public static Task<SystemInfo> CollectAsync(bool isAdmin)
         {
             var systemInfo = new SystemInfo { DotNetVersion = Environment.Version.ToString() };
 
-            try // Wrap the whole collection in try/catch
+            try
             {
                 // --- OS Info ---
                 systemInfo.OperatingSystem = new OSInfo();
@@ -27,7 +26,8 @@ namespace DiagnosticToolAllInOne.Collectors
                          systemInfo.OperatingSystem.Name = WmiHelper.GetProperty(obj, "Caption");
                          systemInfo.OperatingSystem.Architecture = WmiHelper.GetProperty(obj, "OSArchitecture");
                          systemInfo.OperatingSystem.Version = WmiHelper.GetProperty(obj, "Version");
-                         systemInfo.OperatingSystem.BuildNumber = WmiHelper.GetProperty(obj, "BuildNumber");
+                         systemInfo.OperatingSystem.BuildNumber = WmiHelper.GetProperty(obj, "BuildNumber"); // Keep string for display
+                         // BuildNumberUint is automatically calculated in the model if BuildNumber is valid
                          systemInfo.OperatingSystem.InstallDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "InstallDate"));
                          systemInfo.OperatingSystem.LastBootTime = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "LastBootUpTime"));
                          if (systemInfo.OperatingSystem.LastBootTime.HasValue)
@@ -36,7 +36,6 @@ namespace DiagnosticToolAllInOne.Collectors
                          }
                          systemInfo.OperatingSystem.SystemDrive = WmiHelper.GetProperty(obj, "SystemDrive");
                      },
-                      // Corrected: Call AddSpecificError on the instance
                       error => systemInfo.AddSpecificError("OSInfo", error)
                  );
 
@@ -52,9 +51,8 @@ namespace DiagnosticToolAllInOne.Collectors
                          systemInfo.ComputerSystem.DomainOrWorkgroup = systemInfo.ComputerSystem.PartOfDomain
                              ? WmiHelper.GetProperty(obj, "Domain")
                              : WmiHelper.GetProperty(obj, "Workgroup", "N/A");
-                         systemInfo.ComputerSystem.LoggedInUserWMI = WmiHelper.GetProperty(obj, "UserName"); // User logged in per WMI
+                         systemInfo.ComputerSystem.LoggedInUserWMI = WmiHelper.GetProperty(obj, "UserName");
                       },
-                       // Corrected: Call AddSpecificError on the instance
                        error => systemInfo.AddSpecificError("ComputerSystem", error)
                  );
 
@@ -68,7 +66,6 @@ namespace DiagnosticToolAllInOne.Collectors
                          systemInfo.Baseboard.SerialNumber = WmiHelper.GetProperty(obj, "SerialNumber", isAdmin ? "N/A" : "Requires Admin");
                          systemInfo.Baseboard.Version = WmiHelper.GetProperty(obj, "Version");
                      },
-                      // Corrected: Call AddSpecificError on the instance
                       error => systemInfo.AddSpecificError("Baseboard", error)
                  );
 
@@ -82,7 +79,6 @@ namespace DiagnosticToolAllInOne.Collectors
                          systemInfo.BIOS.ReleaseDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "ReleaseDate"));
                          systemInfo.BIOS.SerialNumber = WmiHelper.GetProperty(obj, "SerialNumber", isAdmin ? "N/A" : "Requires Admin");
                      },
-                      // Corrected: Call AddSpecificError on the instance
                       error => systemInfo.AddSpecificError("BIOS", error)
                  );
 
@@ -96,7 +92,6 @@ namespace DiagnosticToolAllInOne.Collectors
                          systemInfo.TimeZone.DaylightName = WmiHelper.GetProperty(obj, "DaylightName");
                          systemInfo.TimeZone.BiasMinutes = int.TryParse(WmiHelper.GetProperty(obj, "Bias"), out int bias) ? bias : null;
                      },
-                      // Corrected: Call AddSpecificError on the instance
                       error => systemInfo.AddSpecificError("TimeZone", error)
                  );
 
@@ -111,24 +106,20 @@ namespace DiagnosticToolAllInOne.Collectors
                              IsActive = true
                          };
                      },
-                     // Corrected: Call AddSpecificError on the instance
                      error => systemInfo.AddSpecificError("PowerPlan", error)
                  );
-                // If ActivePowerPlan is still null after attempt, WMI might have failed or no plan is active
-                // Corrected CS8602: Add null check before accessing SpecificCollectionErrors
                 if(systemInfo.ActivePowerPlan == null && !(systemInfo.SpecificCollectionErrors?.ContainsKey("PowerPlan") ?? false))
                 {
-                     // Corrected: Call AddSpecificError on the instance
                      systemInfo.AddSpecificError("PowerPlan", "No active power plan found or query failed silently.");
                 }
             }
-            catch (Exception ex) // Catch errors in the overall collection setup
+            catch (Exception ex)
             {
                  Console.Error.WriteLine($"[CRITICAL ERROR] System Info Collection failed: {ex.Message}");
                  systemInfo.SectionCollectionErrorMessage = $"Critical failure during System Info collection: {ex.Message}";
             }
 
-            return Task.FromResult(systemInfo); // Return completed task with data
+            return Task.FromResult(systemInfo);
         }
     }
 }

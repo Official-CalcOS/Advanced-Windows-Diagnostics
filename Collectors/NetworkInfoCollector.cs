@@ -97,6 +97,7 @@ namespace DiagnosticToolAllInOne.Collectors
 
                              if (ipProps != null)
                              {
+                                 // Keep suppression for now, as direct string conversion is the goal here.
                                  #pragma warning disable CS0618 // Suppress warning for IPAddress.Address usage for string conversion
                                  adapterDetail.IpAddresses = ipProps.UnicastAddresses?.Select(ip => ip.Address.ToString()).ToList() ?? new List<string>();
                                  #pragma warning restore CS0618
