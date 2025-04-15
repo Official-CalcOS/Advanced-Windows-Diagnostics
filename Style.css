@@ -1,0 +1,101 @@
+input {
+    color: #000000;
+}
+
+label {
+    color: #077fca;
+}
+
+p {
+    color: #077fca;
+}
+
+div controls {
+    color: #077fca;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+h1, h2 {
+    color: #077fca;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #0cb628;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+#report-metadata, .section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: #0056b3; /* Dark blue */
+}
+
+.section h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #1a1a1a; /* Darker grey */
+    border-bottom: none;
+}
+
+.section p, .section li {
+    margin-bottom: 5px;
+}
+
+.section strong {
+ color: #555;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+}
+
+li::before { /* Simple custom bullet */
+    content: "•";
+    color: #0056b3;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    background-color: #ffebeb;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.analysis-section .issues { color: red; }
+.analysis-section .suggestions { color: orange; }
+.analysis-section .info { color: green; }

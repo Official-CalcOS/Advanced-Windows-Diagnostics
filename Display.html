@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Report Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Developed by Jack Warren</h3>
+    <h1>Smart Business Advanced Windows Diagnostics</h1>
+
+    <div id="controls">
+        <label for="reportFile">Select Report JSON File:</label>
+        <input type="file" id="reportFile" accept=".json">
+        <div id="loading-status" style="margin-top: 10px;"></div> </div>
+
+
+    <div id="report-metadata" style="display: none;"> <h2>Report Details</h2>
+        <p><strong>Generated (UTC):</strong> <span id="timestamp"></span></p>
+        <p><strong>Ran as Admin:</strong> <span id="ran-as-admin"></span></p>
+    </div>
+
+    <div id="report-sections">
+        <p>Please select a JSON report file using the button above.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
