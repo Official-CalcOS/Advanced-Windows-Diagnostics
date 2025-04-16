@@ -16,6 +16,152 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target && event.target.classList.contains('collapsible-toggle')) {
             toggleCollapsible(event.target);
         }
+        const searchBox = document.getElementById('searchBox');
+        const clearSearchBtn = document.getElementById('clearSearchBtn'); // Get the button
+        const reportSectionsContainer = document.getElementById('report-sections');
+        let highlightTags = []; // Keep track of added highlight spans
+
+        if (searchBox) {
+            searchBox.addEventListener('input', handleSearch);
+        }
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', () => {
+                searchBox.value = ''; // Clear the input
+                handleSearch(); // Trigger search logic to remove highlights
+            });
+        }
+
+
+        function handleSearch() {
+            const searchTerm = searchBox.value.trim().toLowerCase();
+            removeHighlights(); // Clear previous highlights
+
+            // If search term is empty, ensure all sections are visible
+            if (!searchTerm) {
+                reportSectionsContainer.querySelectorAll('.section, .subsection, li, td, p').forEach(el => {
+                    el.classList.remove('no-match'); // Make sure everything is visible
+                });
+                return;
+            }
+
+            // Iterate through searchable elements within the report sections
+            // Adjust the selector based on where you want to search (e.g., p, li, td)
+            reportSectionsContainer.querySelectorAll('p, li, td, h3, h4').forEach(element => {
+                const text = element.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    highlightText(element, searchTerm);
+                    // Ensure parent sections are visible if a child matches
+                    let parent = element.closest('.section, .subsection');
+                    while(parent) {
+                        parent.classList.remove('no-match');
+                        // If it's a collapsible section, potentially expand it (optional)
+                        // const toggle = parent.querySelector('.collapsible-toggle');
+                        // if (toggle && !toggle.classList.contains('active')) {
+                        //    toggleCollapsible(toggle); // Expand parent if match found inside
+                        // }
+                        parent = parent.parentElement.closest('.section, .subsection'); // Go up hierarchy
+                    }
+                } else {
+                    // Optional: Fade out or hide elements that don't match
+                    // Be careful with hiding, could hide parent elements unintentionally
+                    // element.classList.add('no-match');
+                }
+            });
+
+            // Optional: Fade out entire sections if NO descendant matches
+            reportSectionsContainer.querySelectorAll('.section').forEach(section => {
+                if (!section.querySelector('.highlight-search')) {
+                    // Check if any direct content *outside* subsections matches
+                    let directMatch = false;
+                    section.querySelectorAll(':scope > .collapsible-content > *:not(.subsection)').forEach(directChild => {
+                        if (directChild.textContent.toLowerCase().includes(searchTerm)){
+                            directMatch = true;
+                        }
+                    });
+
+                    // If no highlighted descendants and no direct matches, mark section
+                    if(!directMatch) {
+                        section.classList.add('no-match');
+                    } else {
+                        section.classList.remove('no-match');
+                    }
+                } else {
+                    section.classList.remove('no-match'); // Ensure sections with matches are visible
+                }
+            });
+        }
+
+        function highlightText(element, searchTerm) {
+            const lowerSearchTerm = searchTerm.toLowerCase();
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            const nodesToReplace = [];
+
+            while (node = walker.nextNode()) {
+                const text = node.nodeValue.toLowerCase();
+                let startIndex = 0;
+                let index = text.indexOf(lowerSearchTerm, startIndex);
+
+                if (index !== -1 && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE') {
+                    nodesToReplace.push({ node: node, term: searchTerm });
+                }
+            }
+
+            // Perform replacements after iteration to avoid modifying the live node list
+            nodesToReplace.forEach(item => {
+                const { node, term } = item;
+                const text = node.nodeValue;
+                const lowerText = text.toLowerCase();
+                const lowerTerm = term.toLowerCase();
+                let currentIndex = 0;
+                const fragment = document.createDocumentFragment();
+
+                while (currentIndex < text.length) {
+                    const termIndex = lowerText.indexOf(lowerTerm, currentIndex);
+                    if (termIndex === -1) {
+                        // Append remaining text
+                        fragment.appendChild(document.createTextNode(text.substring(currentIndex)));
+                        break;
+                    }
+
+                    // Append text before the match
+                    if (termIndex > currentIndex) {
+                        fragment.appendChild(document.createTextNode(text.substring(currentIndex, termIndex)));
+                    }
+
+                    // Create and append the highlighted span
+                    const matchText = text.substring(termIndex, termIndex + term.length);
+                    const span = document.createElement('span');
+                    span.className = 'highlight-search';
+                    span.textContent = matchText;
+                    fragment.appendChild(span);
+                    highlightTags.push(span); // Keep track
+
+                    // Update current index
+                    currentIndex = termIndex + term.length;
+                }
+
+                // Replace the original text node with the fragment
+                node.parentNode.replaceChild(fragment, node);
+            });
+        }
+
+        function removeHighlights() {
+            highlightTags.forEach(span => {
+                if (span.parentNode) {
+                    const textNode = document.createTextNode(span.textContent);
+                    span.parentNode.replaceChild(textNode, span);
+                    // Optional: Normalize parent node to merge adjacent text nodes
+                    // span.parentNode.normalize(); // Can have performance implications
+                }
+            });
+            highlightTags = []; // Clear the list
+
+            // Also remove the no-match class from all elements
+            reportSectionsContainer.querySelectorAll('.no-match').forEach(el => {
+                el.classList.remove('no-match');
+            });
+            }
     });
     // Also add listener for the initial metadata section toggle
      reportMetadataContainer.previousElementSibling.addEventListener('click', function(event) {
@@ -246,26 +392,38 @@ function formatNullableDateTime(dateString, localeOptions = undefined) {
 }
 
 // Helper to format TimeSpan object (like OS Uptime)
-function formatTimespan(timespanObject) {
-    if (!timespanObject) return 'N/A';
-    // Assuming timespanObject is like { Days: d, Hours: h, Minutes: m, Seconds: s, ... }
-    // Check if Days property exists and is a number
-    if (typeof timespanObject.Days !== 'number') {
-        // Try parsing if it's a string like "d.hh:mm:ss"
-        if (typeof timespanObject === 'string' && timespanObject.includes('.')) {
-            const parts = timespanObject.split(/[.:]/); // Split by dot or colon
-            if (parts.length >= 3) { // Need at least days, hours, minutes
-                const d = parseInt(parts[0], 10) || 0;
-                const h = parseInt(parts[1], 10) || 0;
-                const m = parseInt(parts[2], 10) || 0;
-                const s = parseInt(parts[3], 10) || 0;
-                 return `${d}d ${h}h ${m}m ${s}s`;
-            }
-        }
-        return 'Invalid TimeSpan'; // Could not parse
+function formatTimespan(timespanInput) {
+    if (!timespanInput) return 'N/A';
+
+    let days = 0, hours = 0, minutes = 0, seconds = 0;
+
+    // Check if it's the object structure directly from C# (less likely after JSON stringify/parse)
+    if (typeof timespanInput === 'object' && typeof timespanInput.Days === 'number') {
+        days = timespanInput.Days || 0;
+        hours = timespanInput.Hours || 0;
+        minutes = timespanInput.Minutes || 0;
+        seconds = timespanInput.Seconds || 0;
     }
-    // Original object format
-    return `${safeGet(timespanObject, 'Days', 0)}d ${safeGet(timespanObject, 'Hours', 0)}h ${safeGet(timespanObject, 'Minutes', 0)}m ${safeGet(timespanObject, 'Seconds', 0)}s`;
+    // Check if it's the default TimeSpan string format "d.hh:mm:ss.fffffff"
+    else if (typeof timespanInput === 'string' && timespanInput.includes('.')) {
+        const parts = timespanInput.split('.');
+        days = parseInt(parts[0], 10) || 0;
+        if (parts[1]) { // Check if time part exists
+            const timeParts = parts[1].split(':');
+            hours = parseInt(timeParts[0], 10) || 0;
+            minutes = parseInt(timeParts[1], 10) || 0;
+            // Handle seconds potentially having fractional part
+            seconds = parseInt(timeParts[2], 10) || 0; // parseInt ignores after decimal
+        }
+    }
+     // Add more parsing logic here if other formats are possible
+     else {
+         console.warn("Could not parse TimeSpan format:", timespanInput);
+         return 'Invalid TimeSpan'; // Indicate parsing failure
+     }
+
+    // Format the output string
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
 // Basic Table Creation Helper (Can be enhanced)

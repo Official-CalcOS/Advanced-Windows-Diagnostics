@@ -20,24 +20,24 @@ namespace DiagnosticToolAllInOne.Collectors
             {
                 // --- OS Info ---
                 systemInfo.OperatingSystem = new OSInfo();
-                 WmiHelper.ProcessWmiResults(
-                     WmiHelper.Query("Win32_OperatingSystem", null, WMI_CIMV2),
-                     obj => {
-                         systemInfo.OperatingSystem.Name = WmiHelper.GetProperty(obj, "Caption");
-                         systemInfo.OperatingSystem.Architecture = WmiHelper.GetProperty(obj, "OSArchitecture");
-                         systemInfo.OperatingSystem.Version = WmiHelper.GetProperty(obj, "Version");
-                         systemInfo.OperatingSystem.BuildNumber = WmiHelper.GetProperty(obj, "BuildNumber"); // Keep string for display
-                         // BuildNumberUint is automatically calculated in the model if BuildNumber is valid
-                         systemInfo.OperatingSystem.InstallDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "InstallDate"));
-                         systemInfo.OperatingSystem.LastBootTime = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "LastBootUpTime"));
-                         if (systemInfo.OperatingSystem.LastBootTime.HasValue)
-                         {
-                             systemInfo.OperatingSystem.Uptime = DateTime.Now - systemInfo.OperatingSystem.LastBootTime.Value;
-                         }
-                         systemInfo.OperatingSystem.SystemDrive = WmiHelper.GetProperty(obj, "SystemDrive");
-                     },
-                      error => systemInfo.AddSpecificError("OSInfo", error)
-                 );
+                WmiHelper.ProcessWmiResults( // No 'new', no assignment to 'searcher'
+                    WmiHelper.Query("Win32_OperatingSystem", null, WMI_CIMV2), // The query results are passed in
+                    obj => { // Action to perform for each result object
+                        systemInfo.OperatingSystem.Name = WmiHelper.GetProperty(obj, "Caption");
+                        systemInfo.OperatingSystem.Architecture = WmiHelper.GetProperty(obj, "OSArchitecture");
+                        systemInfo.OperatingSystem.Version = WmiHelper.GetProperty(obj, "Version");
+                        systemInfo.OperatingSystem.BuildNumber = WmiHelper.GetProperty(obj, "BuildNumber");
+                        systemInfo.OperatingSystem.InstallDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "InstallDate"));
+                        systemInfo.OperatingSystem.LastBootTime = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "LastBootUpTime"));
+                        if (systemInfo.OperatingSystem.LastBootTime.HasValue)
+                        {
+                            systemInfo.OperatingSystem.Uptime = DateTime.Now - systemInfo.OperatingSystem.LastBootTime.Value;
+                        }
+
+                        systemInfo.OperatingSystem.SystemDrive = WmiHelper.GetProperty(obj, "SystemDrive");
+                    },
+                    error => systemInfo.AddSpecificError("OSInfo", error) // Action to perform if there's an error during processing
+                );
 
                 // --- Computer System Info ---
                 systemInfo.ComputerSystem = new ComputerSystemInfo { CurrentUser = Environment.UserName };

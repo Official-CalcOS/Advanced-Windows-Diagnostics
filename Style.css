@@ -469,3 +469,42 @@ th.sortable.sort-desc::after {
     .data-table { font-size: 0.85em; }
     .data-table th, .data-table td { padding: 6px 8px; }
 }
+
+/* Style the search input */
+#controls #searchBox {
+    padding: 5px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    margin-left: 15px; /* Space it out */
+    flex-grow: 1; /* Allow it to take space */
+    min-width: 200px;
+}
+
+#controls #clearSearchBtn {
+    padding: 5px 10px;
+    background-color: var(--light-text-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#controls #clearSearchBtn:hover {
+    background-color: #888;
+}
+
+
+/* Style for highlighted text */
+.highlight-search {
+    background-color: yellow;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+/* Style for sections/elements that don't match (optional: hide them) */
+.no-match {
+     /* display: none; */ /* Uncomment to hide non-matching sections */
+     opacity: 0.5; /* Or fade them out */
+     transition: opacity 0.3s ease;
+}

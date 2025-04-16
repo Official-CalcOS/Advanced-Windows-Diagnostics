@@ -534,6 +534,23 @@ namespace DiagnosticToolAllInOne
                  Console.WriteLine(Separator);
             }
 
+            // --- Attempt to open the HTML viewer ---
+            string htmlFilePath = Path.Combine(AppContext.BaseDirectory, "../../../Display.html"); // Assuming HTML is in the same directory
+            if (File.Exists(htmlFilePath) && !_quietMode && !outputJson && Environment.UserInteractive)
+            {
+                StatusUpdate($"\nAttempting to open report viewer: {htmlFilePath}");
+                try
+                {
+                    // Use Process.Start with UseShellExecute = true to open the default browser
+                    Process.Start(new ProcessStartInfo(htmlFilePath) { UseShellExecute = true });
+                }
+                catch (Exception ex)
+                {
+                    StatusUpdate($"[WARNING] Could not automatically open '{htmlFilePath}': {ex.Message}", color: ConsoleColor.Yellow);
+                    // Don't treat this as a critical failure
+                }
+            }
+
             // --- Keep console open if interactive (and no explicit output file specified) ---
              if (!_quietMode && !outputJson && outputFile == null && !Console.IsInputRedirected && Environment.UserInteractive)
             {
