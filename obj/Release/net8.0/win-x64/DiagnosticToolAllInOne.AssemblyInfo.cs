@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinDiagAdvanced")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ca621f026a77e6303030a2582d947cb58311756")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00574b64ea7d559e1ed68135f66a82fb90531db5")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinDiagAdvanced")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinDiagAdvanced")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
