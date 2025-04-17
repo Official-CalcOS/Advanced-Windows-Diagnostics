@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Report Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Advanced Windows Diagnostics</h1>
+        <p class="tagline">Developed by Jack Warren</p> </header>
+
+        <div id="controls">
+            <label for="reportFile">Select Report JSON File:</label>
+            <input type="file" id="reportFile" accept=".json,application/json">
+        
+            <label for="searchBox">Search Report:</label>
+            <input type="text" id="searchBox" placeholder="Type to search...">
+            <button id="clearSearchBtn">Clear</button> <div id="loading-status" class="status-message"></div>
+        </div>
+
+    <div class="section collapsible">
+        <h2 class="collapsible-toggle">Report Details</h2>
+        <div class="collapsible-content" id="report-metadata">
+             <p><strong>Generated (UTC):</strong> <span id="timestamp">N/A</span></p>
+             <p><strong>Ran as Admin:</strong> <span id="ran-as-admin">N/A</span></p>
+             <p><strong>Configuration Used:</strong> <span id="config-source">N/A</span></p>
+        </div>
+    </div>
+
+
+    <div id="report-sections">
+        <p class="placeholder-text">Please select a JSON report file using the button above.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Jack Warren. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

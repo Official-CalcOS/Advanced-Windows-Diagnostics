@@ -1,0 +1,6 @@
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\WinDiagAdvanced.pdb
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\Display.html
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\Web/Script.js
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\Web/Style.css
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\Web/appsettings.json
+C:\Users\User\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Release\net8.0\win-x64\publish\WinDiagAdvanced.exe

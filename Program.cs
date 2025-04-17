@@ -98,15 +98,51 @@ namespace DiagnosticToolAllInOne
             {
                 var sections = context.ParseResult.GetValueForOption(sectionsOption) ?? new List<string>();
                 var outputFile = context.ParseResult.GetValueForOption(outputOption);
-                var outputJson = context.ParseResult.GetValueForOption(jsonOption);
+                var outputJson = context.ParseResult.GetValueForOption(jsonOption); // Initial value from flag
                 _quietMode = context.ParseResult.GetValueForOption(quietOption) || outputJson;
                 var tracerouteTarget = context.ParseResult.GetValueForOption(tracerouteOption);
-                var dnsTestTarget = context.ParseResult.GetValueForOption(dnsTestOption); // Get value
+                var dnsTestTarget = context.ParseResult.GetValueForOption(dnsTestOption);
                 var timeoutSeconds = context.ParseResult.GetValueForOption(timeoutOption);
 
-                // Clamp timeout to a reasonable minimum (e.g., 10s) and maximum (e.g., 10 mins)
-                timeoutSeconds = Math.Clamp(timeoutSeconds, 10, 600);
+                // --- >> ADD THIS LOGIC << ---
+                bool explicitOutputSet = context.ParseResult.HasOption(outputOption);
+                bool explicitJsonSet = context.ParseResult.HasOption(jsonOption);
 
+                // If no explicit output file or JSON flag is given, default to JSON output
+                if (!explicitOutputSet && !explicitJsonSet)
+                {
+                    outputJson = true; // Force JSON output
+                    _quietMode = true; // Usually implies quiet mode as well
+
+                    // Generate a default filename similar to the automatic log
+                    try
+                    {
+                        string baseDirectory = AppContext.BaseDirectory;
+                        // Put default JSON in the main app directory or a subdirectory
+                        string outputDirectory = Path.Combine(baseDirectory, "JSONReports"); // Example subdirectory
+                        Directory.CreateDirectory(outputDirectory); // Ensure directory exists
+                        string timeStamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                        string hostName = Environment.MachineName.Replace(@"\", "-").Replace("/", "-").Replace(":", "-");
+                        // Use a different prefix/extension for the default JSON output
+                        string defaultFileName = $"DefaultReport_{hostName}_{timeStamp}.json";
+                        outputFile = new FileInfo(Path.Combine(outputDirectory, defaultFileName));
+                        if (!_quietMode) // Only print status if not forced quiet
+                        {
+                            StatusUpdate($"No output flags specified. Defaulting to JSON output at: {outputFile.FullName}", color: ConsoleColor.Cyan);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle potential error creating default path/filename
+                        StatusUpdate($"[WARNING] Could not generate default JSON output path: {ex.Message}. Output may fail.", color: ConsoleColor.Yellow);
+                        outputFile = null; // Prevent trying to write if path failed
+                    }
+                }
+                // --- >> END OF ADDED LOGIC << ---
+
+
+                // Set up cancellation token (clamp timeout etc. - keep existing logic)
+                timeoutSeconds = Math.Clamp(timeoutSeconds, 10, 600);
                 var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeoutSeconds));
                 var cancellationToken = cts.Token;
 
@@ -115,17 +151,13 @@ namespace DiagnosticToolAllInOne
                 var report = await RunDiagnostics(sections, tracerouteTarget, dnsTestTarget, cancellationToken);
                 stopwatch.Stop();
 
-                if (!_quietMode)
+                if (!_quietMode) // Keep existing status updates
                 {
-                     Console.WriteLine($"{Separator}\nTotal execution time: {stopwatch.ElapsedMilliseconds / 1000.0:0.##} seconds.");
-                     if (cancellationToken.IsCancellationRequested)
-                     {
-                          Console.ForegroundColor = ConsoleColor.Yellow;
-                          Console.WriteLine($"[WARNING] Operation cancelled or timed out after {timeoutSeconds} seconds.");
-                          Console.ResetColor();
-                     }
+                    Console.WriteLine($"{Separator}\nTotal execution time: {stopwatch.ElapsedMilliseconds / 1000.0:0.##} seconds.");
+                    if (cancellationToken.IsCancellationRequested) { /* ... existing timeout message ... */ }
                 }
 
+                // Pass the potentially modified outputFile and outputJson variables
                 await HandleOutput(report, outputFile, outputJson);
 
                 // Determine exit code based on CRITICAL errors or timeout
@@ -535,8 +567,8 @@ namespace DiagnosticToolAllInOne
             }
 
             // --- Attempt to open the HTML viewer ---
-            string htmlFilePath = Path.Combine(AppContext.BaseDirectory, "../../../Display.html"); // Assuming HTML is in the same directory
-            if (File.Exists(htmlFilePath) && !_quietMode && !outputJson && Environment.UserInteractive)
+            string htmlFilePath = Path.Combine(AppContext.BaseDirectory, "Display.html"); // Ensure this path is correct
+            if (File.Exists(htmlFilePath) && !_quietMode && Environment.UserInteractive) // <-- Modified condition
             {
                 StatusUpdate($"\nAttempting to open report viewer: {htmlFilePath}");
                 try
@@ -549,6 +581,13 @@ namespace DiagnosticToolAllInOne
                     StatusUpdate($"[WARNING] Could not automatically open '{htmlFilePath}': {ex.Message}", color: ConsoleColor.Yellow);
                     // Don't treat this as a critical failure
                 }
+            }
+
+            // --- Keep console open logic (Keep as is) ---
+            if (!_quietMode && !outputJson && outputFile == null && !Console.IsInputRedirected && Environment.UserInteractive)
+            {
+                Console.WriteLine("\nPress Enter to exit...");
+                Console.ReadLine();
             }
 
             // --- Keep console open if interactive (and no explicit output file specified) ---
