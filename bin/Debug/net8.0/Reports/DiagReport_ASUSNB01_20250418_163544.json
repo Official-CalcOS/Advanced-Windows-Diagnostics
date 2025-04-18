@@ -1,0 +1,3909 @@
+﻿{
+  "ReportTimestamp": "2025-04-18T06:35:44.2226385Z",
+  "RanAsAdmin": true,
+  "System": {
+    "OperatingSystem": {
+      "Name": "Microsoft Windows 10 Pro",
+      "Architecture": "64-bit",
+      "Version": "10.0.19045",
+      "BuildNumber": "19045",
+      "InstallDate": "2024-09-27T19:17:04+10:00",
+      "LastBootTime": "2025-04-18T06:00:24.5+10:00",
+      "Uptime": "10:35:19.8551339",
+      "SystemDrive": "C:"
+    },
+    "ComputerSystem": {
+      "Manufacturer": "ASUSTeK COMPUTER INC.",
+      "Model": "ASUS TUF Gaming A15 FA506QR",
+      "SystemType": "x64-based PC",
+      "DomainOrWorkgroup": "WORKGROUP",
+      "PartOfDomain": false,
+      "CurrentUser": "jack",
+      "LoggedInUserWMI": "ASUSNB01\\jack"
+    },
+    "BIOS": {
+      "Manufacturer": "American Megatrends International, LLC.",
+      "Version": "_ASUS_ - 1072009 / FA506QR.415",
+      "ReleaseDate": "2023-01-07T10:00:00+10:00",
+      "SerialNumber": "M4NRCX023826155"
+    },
+    "Baseboard": {
+      "Manufacturer": "ASUSTeK COMPUTER INC.",
+      "Product": "FA506QR",
+      "SerialNumber": "MB47NRCX00XYU3MB",
+      "Version": "1.0"
+    },
+    "DotNetVersion": "8.0.15",
+    "TimeZone": {
+      "CurrentTimeZone": "(UTC+10:00) Brisbane",
+      "StandardName": "E. Australia Standard Time",
+      "DaylightName": "E. Australia Daylight Time",
+      "BiasMinutes": 600
+    },
+    "SystemIntegrity": {
+      "SfcLogFound": true,
+      "SfcScanResult": "Not Run Recently / No Scan Found",
+      "DismLogFound": true,
+      "DismCheckHealthResult": "Not Run Recently / No Scan Found"
+    },
+    "IsRebootPending": false,
+    "SpecificCollectionErrors": {
+      "PowerPlan": "WMI Query Error: Error getting WMI result count (Code: InvalidClass): Invalid class "
+    }
+  },
+  "Hardware": {
+    "Processors": [
+      {
+        "Name": "AMD Ryzen 7 5800H with Radeon Graphics         ",
+        "Socket": "FP6",
+        "Cores": 8,
+        "LogicalProcessors": 16,
+        "MaxSpeedMHz": 3201,
+        "L2CacheSizeKB": 4096,
+        "L3CacheSizeKB": 16384
+      }
+    ],
+    "Memory": {
+      "PercentUsed": 62.46075094198977,
+      "TotalVisibleMemoryKB": 16151980,
+      "AvailableMemoryKB": 6063332,
+      "Modules": [
+        {
+          "DeviceLocator": "DIMM 0",
+          "CapacityBytes": 17179869184,
+          "SpeedMHz": 3200,
+          "MemoryType": "Unknown",
+          "FormFactor": "SODIMM",
+          "BankLabel": "P0 CHANNEL B",
+          "Manufacturer": "Micron Technology",
+          "PartNumber": "8ATF2G64HZ-3G2E2    "
+        }
+      ]
+    },
+    "PhysicalDisks": [
+      {
+        "Index": 0,
+        "Model": "HFM512GD3JX013N",
+        "MediaType": "Fixed hard disk media",
+        "InterfaceType": "SCSI",
+        "SizeBytes": 512105932800,
+        "Partitions": 3,
+        "SerialNumber": "FFFF_FFFF_FFFF_FFFF.",
+        "Status": "OK",
+        "SmartStatus": {
+          "IsFailurePredicted": false,
+          "StatusText": "Not Supported",
+          "BasicStatusFromDiskDrive": "OK",
+          "Error": "Error getting WMI result count (Code: InvalidQuery): Invalid query "
+        }
+      }
+    ],
+    "LogicalDisks": [
+      {
+        "DeviceID": "C:",
+        "VolumeName": "N/A",
+        "FileSystem": "NTFS",
+        "PercentFree": 27.614526219741624,
+        "SizeBytes": 511412744192,
+        "FreeSpaceBytes": 141224206336
+      }
+    ],
+    "Volumes": [
+      {
+        "Name": "C:\\",
+        "DeviceID": "\\\\?\\Volume{c63c0a35-f537-46f9-9283-500d707ff5b7}\\",
+        "DriveLetter": "C:",
+        "FileSystem": "NTFS",
+        "CapacityBytes": 511412744192,
+        "FreeSpaceBytes": 141224206336,
+        "IsBitLockerProtected": true,
+        "ProtectionStatus": "Protection On"
+      },
+      {
+        "Name": "\\\\?\\Volume{7b198d00-2fe0-4087-8566-d269c92bdb3f}\\",
+        "DeviceID": "\\\\?\\Volume{7b198d00-2fe0-4087-8566-d269c92bdb3f}\\",
+        "DriveLetter": "N/A",
+        "FileSystem": "NTFS",
+        "CapacityBytes": 572518400,
+        "FreeSpaceBytes": 88240128,
+        "IsBitLockerProtected": false,
+        "ProtectionStatus": "Not Found/Not Encryptable"
+      },
+      {
+        "Name": "\\\\?\\Volume{5b2d525d-4604-4466-b62a-6c5f406d4ec9}\\",
+        "DeviceID": "\\\\?\\Volume{5b2d525d-4604-4466-b62a-6c5f406d4ec9}\\",
+        "DriveLetter": "N/A",
+        "FileSystem": "FAT32",
+        "CapacityBytes": 100663296,
+        "FreeSpaceBytes": 72227840,
+        "IsBitLockerProtected": false,
+        "ProtectionStatus": "Not Found/Not Encryptable"
+      }
+    ],
+    "Gpus": [
+      {
+        "Name": "NVIDIA GeForce RTX 3070 Laptop GPU",
+        "AdapterRAMBytes": 4293918720,
+        "DriverVersion": "32.0.15.7283",
+        "DriverDate": "2025-03-14T10:00:00+10:00",
+        "VideoProcessor": "NVIDIA GeForce RTX 3070 Laptop GPU",
+        "Status": "OK"
+      },
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "AdapterRAMBytes": 536870912,
+        "DriverVersion": "27.20.14016.7001",
+        "DriverDate": "2021-01-07T10:00:00+10:00",
+        "VideoProcessor": "AMD Radeon Graphics Processor (0x1638)",
+        "CurrentHorizontalResolution": 1920,
+        "CurrentVerticalResolution": 1080,
+        "CurrentRefreshRate": 75,
+        "Status": "OK"
+      }
+    ],
+    "Monitors": [
+      {
+        "Name": "Default Monitor",
+        "DeviceID": "DesktopMonitor1",
+        "PnpDeviceID": "N/A",
+        "Manufacturer": "N/A",
+        "PixelsPerXLogicalInch": 96,
+        "PixelsPerYLogicalInch": 96
+      },
+      {
+        "Name": "Generic PnP Monitor",
+        "DeviceID": "DesktopMonitor2",
+        "PnpDeviceID": "DISPLAY\\NCP004D\\5&1E8BB4F4&0&UID512",
+        "Manufacturer": "(Standard monitor types)",
+        "ScreenWidth": 1920,
+        "ScreenHeight": 1080,
+        "PixelsPerXLogicalInch": 96,
+        "PixelsPerYLogicalInch": 96,
+        "DiagonalSizeInches": 22.946949688357275
+      }
+    ],
+    "AudioDevices": [
+      {
+        "Name": "NVIDIA High Definition Audio",
+        "ProductName": "NVIDIA High Definition Audio",
+        "Manufacturer": "NVIDIA",
+        "Status": "OK"
+      },
+      {
+        "Name": "Realtek High Definition Audio",
+        "ProductName": "Realtek High Definition Audio",
+        "Manufacturer": "Realtek",
+        "Status": "OK"
+      },
+      {
+        "Name": "AMD High Definition Audio Device",
+        "ProductName": "AMD High Definition Audio Device",
+        "Manufacturer": "Advanced Micro Devices",
+        "Status": "OK"
+      },
+      {
+        "Name": "NVIDIA Virtual Audio Device (Wave Extensible) (WDM)",
+        "ProductName": "NVIDIA Virtual Audio Device (Wave Extensible) (WDM)",
+        "Manufacturer": "NVIDIA",
+        "Status": "OK"
+      }
+    ],
+    "SpecificCollectionErrors": {
+      "PhysicalDisk_0_SMART": "Query Error: Error getting WMI result count (Code: InvalidQuery): Invalid query "
+    }
+  },
+  "Software": {
+    "InstalledApplications": [
+      {
+        "Name": "7-Zip 24.08 (x64)",
+        "Version": "24.08",
+        "Publisher": "Igor Pavlov",
+        "InstallLocation": "C:\\Program Files\\7-Zip\\"
+      },
+      {
+        "Name": "Active@ KillDisk Professional 25",
+        "Version": "25",
+        "Publisher": "LSoft Technologies Inc",
+        "InstallLocation": "C:\\Program Files\\LSoft Technologies\\Active@ KillDisk Professional 24\\",
+        "InstallDate": "2025-01-27T00:00:00"
+      },
+      {
+        "Name": "Adobe Acrobat (64-bit)",
+        "Version": "25.001.20435",
+        "Publisher": "Adobe",
+        "InstallLocation": "C:\\Program Files\\Adobe\\Acrobat DC\\",
+        "InstallDate": "2025-03-20T00:00:00"
+      },
+      {
+        "Name": "Advanced IP Scanner 2.5.1",
+        "Version": "2.5.4594.1",
+        "Publisher": "Famatech",
+        "InstallLocation": "C:\\Program Files (x86)\\Advanced IP Scanner\\",
+        "InstallDate": "2024-10-07T00:00:00"
+      },
+      {
+        "Name": "Angry IP Scanner",
+        "Version": "3.9.1",
+        "Publisher": "Angry IP Scanner",
+        "InstallLocation": "\"C:\\Program Files\\Angry IP Scanner\""
+      },
+      {
+        "Name": "ASUS Smart Display Control",
+        "Version": "1.7.0",
+        "Publisher": "ASUSTek COMPUTER INC.",
+        "InstallLocation": "",
+        "InstallDate": "2025-01-20T00:00:00"
+      },
+      {
+        "Name": "Cheat Engine 7.5",
+        "Publisher": "Cheat Engine",
+        "InstallLocation": "C:\\Program Files\\Cheat Engine 7.5\\",
+        "InstallDate": "2025-01-02T00:00:00"
+      },
+      {
+        "Name": "CMake",
+        "Version": "3.30.4",
+        "Publisher": "Kitware",
+        "InstallLocation": "C:\\Program Files\\CMake\\",
+        "InstallDate": "2024-10-08T00:00:00"
+      },
+      {
+        "Name": "Discord",
+        "Version": "1.0.9164",
+        "Publisher": "Discord Inc.",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\Discord"
+      },
+      {
+        "Name": "Epic Games Launcher",
+        "Version": "1.3.93.0",
+        "Publisher": "Epic Games, Inc.",
+        "InstallLocation": "C:\\Program Files (x86)\\Epic Games\\",
+        "InstallDate": "2024-09-29T00:00:00"
+      },
+      {
+        "Name": "Epic Online Services",
+        "Version": "2.0.44.0",
+        "Publisher": "Epic Games, Inc.",
+        "InstallLocation": "",
+        "InstallDate": "2024-09-29T00:00:00"
+      },
+      {
+        "Name": "Gemini",
+        "Version": "1.0",
+        "Publisher": "Google\\Chrome",
+        "InstallDate": "2025-04-17T00:00:00"
+      },
+      {
+        "Name": "Git",
+        "Version": "2.46.2",
+        "Publisher": "The Git Development Community",
+        "InstallLocation": "C:\\Program Files\\Git\\",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "GitHub Desktop",
+        "Version": "3.4.18",
+        "Publisher": "GitHub, Inc.",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\GitHubDesktop",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "Google Chrome",
+        "Version": "135.0.7049.96",
+        "Publisher": "Google LLC",
+        "InstallLocation": "C:\\Program Files\\Google\\Chrome\\Application",
+        "InstallDate": "2025-04-18T00:00:00"
+      },
+      {
+        "Name": "HWiNFO® 64",
+        "Version": "8.24",
+        "Publisher": "Martin Malik, REALiX s.r.o.",
+        "InstallLocation": "C:\\Program Files\\HWiNFO64\\",
+        "InstallDate": "2025-04-05T00:00:00"
+      },
+      {
+        "Name": "Java 8 Update 421",
+        "Version": "8.0.4210.9",
+        "Publisher": "Oracle Corporation",
+        "InstallLocation": "C:\\Program Files (x86)\\Java\\jre1.8.0_421\\",
+        "InstallDate": "2024-09-28T00:00:00"
+      },
+      {
+        "Name": "Java(TM) SE Development Kit 23 (64-bit)",
+        "Version": "23.0.0.0",
+        "Publisher": "Oracle Corporation",
+        "InstallLocation": "C:\\Program Files\\Java\\jdk-23\\",
+        "InstallDate": "2024-09-28T00:00:00"
+      },
+      {
+        "Name": "Microsoft .NET SDK 8.0.408 (x64)",
+        "Version": "8.4.825.16805",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Microsoft 365 - en-us",
+        "Version": "16.0.18623.20178",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "C:\\Program Files\\Microsoft Office"
+      },
+      {
+        "Name": "Microsoft Edge",
+        "Version": "135.0.3179.73",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "Microsoft OneDrive",
+        "Version": "25.051.0317.0003",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Microsoft System CLR Types for SQL Server 2019",
+        "Version": "15.0.2000.5",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "Microsoft Update Health Tools",
+        "Version": "3.74.0.0",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-09-27T00:00:00"
+      },
+      {
+        "Name": "Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.42.34438",
+        "Version": "14.42.34438.0",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.42.34438",
+        "Version": "14.42.34438.0",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Microsoft Visual Studio Code (User)",
+        "Version": "1.99.3",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\Programs\\Microsoft VS Code\\",
+        "InstallDate": "2025-04-17T00:00:00"
+      },
+      {
+        "Name": "Microsoft Visual Studio Installer",
+        "Version": "3.13.2069.59209",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\"",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "Microsoft Windows Desktop Runtime - 8.0.15 (x64)",
+        "Version": "8.0.15.34718",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Microsoft XNA Framework Redistributable 4.0",
+        "Version": "4.0.20823.0",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-11-03T00:00:00"
+      },
+      {
+        "Name": "Mindustry",
+        "Publisher": "AnukenDev",
+        "InstallLocation": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mindustry"
+      },
+      {
+        "Name": "MongoDB 8.0.6 2008R2Plus SSL (64 bit)",
+        "Version": "8.0.6",
+        "Publisher": "MongoDB Inc.",
+        "InstallLocation": "",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "MongoDB Compass",
+        "Version": "1.46.0",
+        "Publisher": "MongoDB Inc",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\MongoDBCompass",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "Mozilla Firefox (x64 en-US)",
+        "Version": "137.0.1",
+        "Publisher": "Mozilla",
+        "InstallLocation": "C:\\Program Files\\Mozilla Firefox"
+      },
+      {
+        "Name": "Mozilla Maintenance Service",
+        "Version": "130.0.1",
+        "Publisher": "Mozilla"
+      },
+      {
+        "Name": "Nmap 7.95",
+        "Version": "7.95",
+        "Publisher": "Nmap Project"
+      },
+      {
+        "Name": "Node.js",
+        "Version": "22.14.0",
+        "Publisher": "Node.js Foundation",
+        "InstallLocation": "",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "NordPass",
+        "Version": "5.24.13",
+        "Publisher": "NordPass Team"
+      },
+      {
+        "Name": "NordUpdater",
+        "Version": "1.4.6.950",
+        "Publisher": "Nord Security",
+        "InstallLocation": "C:\\Program Files\\NordUpdater\\",
+        "InstallDate": "2025-03-04T00:00:00"
+      },
+      {
+        "Name": "NordVPN",
+        "Version": "7.32.5.0",
+        "Publisher": "Nord Security",
+        "InstallLocation": "C:\\Program Files\\NordVPN\\",
+        "InstallDate": "2025-02-02T00:00:00"
+      },
+      {
+        "Name": "Npcap",
+        "Version": "1.81",
+        "Publisher": "Nmap Project",
+        "InstallLocation": "C:\\Program Files\\Npcap"
+      },
+      {
+        "Name": "NVIDIA App 11.0.3.232",
+        "Version": "11.0.3.232",
+        "Publisher": "NVIDIA Corporation",
+        "InstallLocation": "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.NvApp.{2BD33F9E-2E63-4DEF-908E-AA32F152BDB0}",
+        "InstallDate": "2025-04-12T00:00:00"
+      },
+      {
+        "Name": "NVIDIA FrameView SDK 1.5.10920.35420203",
+        "Version": "1.5.10920.35420203",
+        "Publisher": "NVIDIA Corporation",
+        "InstallLocation": "C:\\Program Files\\NVIDIA Corporation\\FrameViewSDK",
+        "InstallDate": "2025-04-12T00:00:00"
+      },
+      {
+        "Name": "NVIDIA Graphics Driver 572.83",
+        "Version": "572.83",
+        "Publisher": "NVIDIA Corporation",
+        "InstallLocation": "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.Driver.{EC759509-468D-4C33-BCD5-6E0D3A6B61A8}",
+        "InstallDate": "2025-03-29T00:00:00"
+      },
+      {
+        "Name": "NVIDIA HD Audio Driver 1.4.3.2",
+        "Version": "1.4.3.2",
+        "Publisher": "NVIDIA Corporation",
+        "InstallLocation": "C:\\Program Files\\NVIDIA Corporation\\Installer2\\HDAudio.Driver.{1BA75B42-3107-4D9E-B8E7-587B8FF1F05D}",
+        "InstallDate": "2025-03-29T00:00:00"
+      },
+      {
+        "Name": "NVIDIA PhysX System Software 9.23.1019",
+        "Version": "9.23.1019",
+        "Publisher": "NVIDIA Corporation",
+        "InstallLocation": "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX",
+        "InstallDate": "2024-09-28T00:00:00"
+      },
+      {
+        "Name": "Obsidian",
+        "Version": "1.6.7",
+        "Publisher": "Obsidian"
+      },
+      {
+        "Name": "PingPlotter 5",
+        "Version": "5.25.8.9059",
+        "Publisher": "Pingman Tools, LLC",
+        "InstallLocation": "C:\\Program Files (x86)\\PingPlotter 5\\"
+      },
+      {
+        "Name": "Portmaster",
+        "Version": "1.0.13.0",
+        "Publisher": "Safing ICS Technologies GmbH",
+        "InstallLocation": "\"C:\\ProgramData\\Safing\\Portmaster\""
+      },
+      {
+        "Name": "PowerShell 7.4.7.0-x64",
+        "Version": "7.4.7.0",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "PowerShell 7.6.3.0-x64",
+        "Version": "7.6.3.0",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "PowerToys (Preview) x64",
+        "Version": "0.84.1",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "PuTTY release 0.81 (64-bit)",
+        "Version": "0.81.0.0",
+        "Publisher": "Simon Tatham",
+        "InstallLocation": "",
+        "InstallDate": "2024-09-27T00:00:00"
+      },
+      {
+        "Name": "Python 3.12.6 (64-bit)",
+        "Version": "3.12.6150.0",
+        "Publisher": "Python Software Foundation"
+      },
+      {
+        "Name": "Python 3.13.3 (64-bit)",
+        "Version": "3.13.3150.0",
+        "Publisher": "Python Software Foundation"
+      },
+      {
+        "Name": "Python Launcher",
+        "Version": "3.13.3150.0",
+        "Publisher": "Python Software Foundation",
+        "InstallLocation": "",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "Roblox Player for jack\u0000 ",
+        "Publisher": "Roblox Corporation",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\Roblox\\Versions\\version-5a6b6797f4e04078"
+      },
+      {
+        "Name": "Silica",
+        "Publisher": "Martin 'Dram' Melichárek",
+        "InstallLocation": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Silica"
+      },
+      {
+        "Name": "Slack",
+        "Version": "4.43.51",
+        "Publisher": "Slack Technologies Inc.",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\slack",
+        "InstallDate": "2025-04-05T00:00:00"
+      },
+      {
+        "Name": "SSHFS-Win 2021 (x64)",
+        "Version": "3.5.20357",
+        "Publisher": "Navimatics LLC",
+        "InstallLocation": "",
+        "InstallDate": "2024-09-27T00:00:00"
+      },
+      {
+        "Name": "Steam",
+        "Version": "2.10.91.91",
+        "Publisher": "Valve Corporation"
+      },
+      {
+        "Name": "Stellaris",
+        "Publisher": "Paradox Development Studio",
+        "InstallLocation": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stellaris"
+      },
+      {
+        "Name": "Sublime Text",
+        "Publisher": "Sublime HQ Pty Ltd",
+        "InstallLocation": "C:\\Program Files\\Sublime Text\\",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "Tailscale",
+        "Version": "1.82.0",
+        "Publisher": "Tailscale Inc.",
+        "InstallLocation": "",
+        "InstallDate": "2025-04-02T00:00:00"
+      },
+      {
+        "Name": "Update for x64-based Windows Systems (KB5001716)",
+        "Version": "8.94.0.0",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-10-18T00:00:00"
+      },
+      {
+        "Name": "Visual Studio Build Tools 2019",
+        "Version": "16.11.46",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools",
+        "InstallDate": "2025-04-13T00:00:00"
+      },
+      {
+        "Name": "Visual Studio Community 2022",
+        "Version": "17.13.6",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "VMware Player",
+        "Version": "17.5.0",
+        "Publisher": "VMware, Inc.",
+        "InstallLocation": "",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "vs_CoreEditorFonts",
+        "Version": "17.7.40001",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "WeMod",
+        "Version": "10.10.3",
+        "Publisher": "WeMod",
+        "InstallLocation": "C:\\Users\\jack\\AppData\\Local\\WeMod",
+        "InstallDate": "2025-04-07T00:00:00"
+      },
+      {
+        "Name": "WinDirStat 1.1.2",
+        "InstallLocation": "C:\\Program Files (x86)\\WinDirStat"
+      },
+      {
+        "Name": "Windows 11 Installation Assistant",
+        "Version": "1.4.19041.5003",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "Windows SDK AddOn",
+        "Version": "10.1.0.0",
+        "Publisher": "Microsoft Corporation",
+        "InstallLocation": "",
+        "InstallDate": "2024-10-01T00:00:00"
+      },
+      {
+        "Name": "Windows Software Development Kit - Windows 10.0.22621.3233",
+        "Version": "10.1.22621.3233",
+        "Publisher": "Microsoft Corporation"
+      },
+      {
+        "Name": "WinFsp 2023",
+        "Version": "2.0.23075",
+        "Publisher": "Navimatics LLC",
+        "InstallLocation": "",
+        "InstallDate": "2024-09-27T00:00:00"
+      },
+      {
+        "Name": "WinSCP 6.3.6",
+        "Version": "6.3.6",
+        "Publisher": "Martin Prikryl",
+        "InstallLocation": "C:\\Program Files (x86)\\WinSCP\\",
+        "InstallDate": "2025-01-27T00:00:00"
+      },
+      {
+        "Name": "YouTube",
+        "Version": "1.0",
+        "Publisher": "Google\\Chrome",
+        "InstallDate": "2025-04-18T00:00:00"
+      }
+    ],
+    "WindowsUpdates": [
+      {
+        "HotFixID": "KB5054978",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5042056",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5011048",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5015684",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5055518",
+        "Description": "Security Update"
+      },
+      {
+        "HotFixID": "KB5014032",
+        "Description": "Security Update"
+      },
+      {
+        "HotFixID": "KB5032907",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5043130",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5046823",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5050388",
+        "Description": "Security Update"
+      },
+      {
+        "HotFixID": "KB5050111",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5052916",
+        "Description": "Update"
+      },
+      {
+        "HotFixID": "KB5054682",
+        "Description": "Update"
+      }
+    ],
+    "RelevantServices": [
+      {
+        "Name": "AdobeARMservice",
+        "DisplayName": "Adobe Acrobat Update Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\Common Files\\Adobe\\ARM\\1.0\\armsvc.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "AMD External Events Utility",
+        "DisplayName": "AMD External Events Utility",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\u0363046.inf_amd64_d6f0080b527c99b5\\B362912\\atiesrxx.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "Appinfo",
+        "DisplayName": "Application Information",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "AppXSvc",
+        "DisplayName": "AppX Deployment Service (AppXSVC)",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k wsappx -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "ArmouryCrateControlInterface",
+        "DisplayName": "Armoury Crate Control Interface",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\ASUSACCI\\ArmouryCrateControlInterface.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "AsusAppService",
+        "DisplayName": "ASUS App Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\AsusAppService\\AsusAppService.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "ASUSOptimization",
+        "DisplayName": "ASUS Optimization",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\ASUSOptimization\\AsusOptimization.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "ASUSSoftwareManager",
+        "DisplayName": "ASUS Software Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\ASUSSoftwareManager\\AsusSoftwareManager.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "ASUSSwitch",
+        "DisplayName": "ASUS Switch",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\ASUSSwitch\\AsusSwitch.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "ASUSSystemAnalysis",
+        "DisplayName": "ASUS System Analysis",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\ASUSSystemAnalysis\\AsusSystemAnalysis.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "ASUSSystemDiagnosis",
+        "DisplayName": "ASUS System Diagnosis",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_f57c48cf404ebc46\\ASUSSystemDiagnosis\\AsusSystemDiagnosis.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "AudioEndpointBuilder",
+        "DisplayName": "Windows Audio Endpoint Builder",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Audiosrv",
+        "DisplayName": "Windows Audio",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "battlenet_helpersvc",
+        "DisplayName": "Battle.net Update Helper Svc",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "C:\\ProgramData\\Battle.net_components\\battlenet_helpersvc\\AgentHelper.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "BDESVC",
+        "DisplayName": "BitLocker Drive Encryption Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "BEService",
+        "DisplayName": "BattlEye Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files (x86)\\Common Files\\BattlEye\\BEService.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "BFE",
+        "DisplayName": "Base Filtering Engine",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "BITS",
+        "DisplayName": "Background Intelligent Transfer Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "BrokerInfrastructure",
+        "DisplayName": "Background Tasks Infrastructure Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "BthAvctpSvc",
+        "DisplayName": "AVCTP service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "camsvc",
+        "DisplayName": "Capability Access Manager Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k appmodel -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "cbdhsvc_138a258",
+        "DisplayName": "Clipboard User Service_138a258",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k ClipboardSvcGroup -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "CDPSvc",
+        "DisplayName": "Connected Devices Platform Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "CDPUserSvc_138a258",
+        "DisplayName": "Connected Devices Platform User Service_138a258",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k UnistackSvcGroup",
+        "Status": "OK"
+      },
+      {
+        "Name": "ClickToRunSvc",
+        "DisplayName": "Microsoft Office Click-to-Run Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" /service",
+        "Status": "OK"
+      },
+      {
+        "Name": "CoreMessagingRegistrar",
+        "DisplayName": "CoreMessaging",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetwork -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "CryptSvc",
+        "DisplayName": "Cryptographic Services",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k NetworkService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DcomLaunch",
+        "DisplayName": "DCOM Server Process Launcher",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DeviceAssociationService",
+        "DisplayName": "Device Association Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DeviceInstall",
+        "DisplayName": "Device Install Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DevQueryBroker",
+        "DisplayName": "DevQuery Background Discovery Broker",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Dhcp",
+        "DisplayName": "DHCP Client",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DiagTrack",
+        "DisplayName": "Connected User Experiences and Telemetry",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k utcsvc -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DispBrokerDesktopSvc",
+        "DisplayName": "Display Policy Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DisplayEnhancementService",
+        "DisplayName": "Display Enhancement Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Dnscache",
+        "DisplayName": "DNS Client",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k NetworkService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DoSvc",
+        "DisplayName": "Delivery Optimization",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k NetworkService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DPS",
+        "DisplayName": "Diagnostic Policy Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNoNetwork -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "DtsApo4Service",
+        "DisplayName": "DtsApo4Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DTS\\PC\\APO4x\\DtsApo4Service.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "DusmSvc",
+        "DisplayName": "Data Usage",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "EasyAntiCheat_EOS",
+        "DisplayName": "Easy Anti-Cheat (Epic Online Services)",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files (x86)\\EasyAntiCheat_EOS\\EasyAntiCheat_EOS.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "EFS",
+        "DisplayName": "Encrypting File System (EFS)",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\lsass.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "EpicOnlineServices",
+        "DisplayName": "Epic Online Services",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files (x86)\\Epic Games\\Epic Online Services\\service\\EpicOnlineServicesHost.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "EventLog",
+        "DisplayName": "Windows Event Log",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "EventSystem",
+        "DisplayName": "COM+ Event System",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "fdPHost",
+        "DisplayName": "Function Discovery Provider Host",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "FDResPub",
+        "DisplayName": "Function Discovery Resource Publication",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceAndNoImpersonation -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "FontCache",
+        "DisplayName": "Windows Font Cache Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "FvSvc",
+        "DisplayName": "NVIDIA FrameView SDK service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files\\NVIDIA Corporation\\FrameViewSDK\\nvfvsdksvc_x64.exe\" -service",
+        "Status": "OK"
+      },
+      {
+        "Name": "GamingServices",
+        "DisplayName": "Gaming Services",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_28.100.8001.0_x64__8wekyb3d8bbwe\\GamingServices.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "GamingServicesNet",
+        "DisplayName": "Gaming Services",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_28.100.8001.0_x64__8wekyb3d8bbwe\\GamingServicesNet.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "GoogleChromeElevationService",
+        "DisplayName": "Google Chrome Elevation Service (GoogleChromeElevationService)",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files\\Google\\Chrome\\Application\\135.0.7049.96\\elevation_service.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "GoogleUpdaterInternalService137.0.7115.0",
+        "DisplayName": "Google Updater Internal Service (GoogleUpdaterInternalService137.0.7115.0)",
+        "State": "Stopped",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\137.0.7115.0\\updater.exe\" --system --windows-service --service=update-internal",
+        "Status": "OK"
+      },
+      {
+        "Name": "GoogleUpdaterService137.0.7115.0",
+        "DisplayName": "Google Updater Service (GoogleUpdaterService137.0.7115.0)",
+        "State": "Stopped",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\137.0.7115.0\\updater.exe\" --system --windows-service --service=update",
+        "Status": "OK"
+      },
+      {
+        "Name": "gpsvc",
+        "DisplayName": "Group Policy Client",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "hidserv",
+        "DisplayName": "Human Interface Device Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "IKEEXT",
+        "DisplayName": "IKE and AuthIP IPsec Keying Modules",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "InstallService",
+        "DisplayName": "Microsoft Store Install Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "iphlpsvc",
+        "DisplayName": "IP Helper",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k NetSvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "KeyIso",
+        "DisplayName": "CNG Key Isolation",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\lsass.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "LanmanServer",
+        "DisplayName": "Server",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "LanmanWorkstation",
+        "DisplayName": "Workstation",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k NetworkService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "lfsvc",
+        "DisplayName": "Geolocation Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "LicenseManager",
+        "DisplayName": "Windows License Manager Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "lmhosts",
+        "DisplayName": "TCP/IP NetBIOS Helper",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "LSM",
+        "DisplayName": "Local Session Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "MDCoreSvc",
+        "DisplayName": "Microsoft Defender Core Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.25030.2-0\\MpDefenderCoreService.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "MongoDB",
+        "DisplayName": "MongoDB Server (MongoDB)",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files\\MongoDB\\Server\\8.0\\bin\\mongod.exe\" --config \"C:\\Program Files\\MongoDB\\Server\\8.0\\bin\\mongod.cfg\" --service",
+        "Status": "OK"
+      },
+      {
+        "Name": "MozillaMaintenance",
+        "DisplayName": "Mozilla Maintenance Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files (x86)\\Mozilla Maintenance Service\\maintenanceservice.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "mpssvc",
+        "DisplayName": "Windows Defender Firewall",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NcbService",
+        "DisplayName": "Network Connection Broker",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NcdAutoSetup",
+        "DisplayName": "Network Connected Devices Auto-Setup",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNoNetwork -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "netprofm",
+        "DisplayName": "Network List Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NgcCtnrSvc",
+        "DisplayName": "Microsoft Passport Container",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NgcSvc",
+        "DisplayName": "Microsoft Passport",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NlaSvc",
+        "DisplayName": "Network Location Awareness",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k NetworkService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "nordsec-threatprotection-service",
+        "DisplayName": "nordsec-threatprotection-service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files\\NordVPN\\NordSec ThreatProtection\\nordsec-threatprotection-service.exe\" \"appVersion-1.4.32.13\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "NordUpdaterService",
+        "DisplayName": "NordSec Update Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files\\NordUpdater\\NordUpdateService.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "nordvpn-service",
+        "DisplayName": "nordvpn-service",
+        "State": "Stopped",
+        "StartMode": "Disabled",
+        "PathName": "\"C:\\Program Files\\NordVPN\\nordvpn-service.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "nsi",
+        "DisplayName": "Network Store Interface Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "NvContainerLocalSystem",
+        "DisplayName": "NVIDIA LocalSystem Container",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files\\NVIDIA Corporation\\NvContainer\\nvcontainer.exe\" -s NvContainerLocalSystem -a -f \"C:\\ProgramData\\NVIDIA Corporation\\NVIDIA app\\NvContainer\\NvContainerLocalSystem.log\" -l 3 -d \"C:\\Program Files\\NVIDIA Corporation\\NvContainer\\plugins\\LocalSystem\" -r -p 30000  -ert",
+        "Status": "OK"
+      },
+      {
+        "Name": "NVDisplay.ContainerLocalSystem",
+        "DisplayName": "NVIDIA Display Container LS",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvami.inf_amd64_f7ffb96781f20ff4\\Display.NvContainer\\NVDisplay.Container.exe -s NVDisplay.ContainerLocalSystem -f C:\\ProgramData\\NVIDIA\\NVDisplay.ContainerLocalSystem.log -l 3 -d C:\\Windows\\System32\\DriverStore\\FileRepository\\nvami.inf_amd64_f7ffb96781f20ff4\\Display.NvContainer\\plugins\\LocalSystem -r -p 30000 -cfg NVDisplay.ContainerLocalSystem\\LocalSystem /ert",
+        "Status": "OK"
+      },
+      {
+        "Name": "OneSyncSvc_138a258",
+        "DisplayName": "Sync Host_138a258",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k UnistackSvcGroup",
+        "Status": "OK"
+      },
+      {
+        "Name": "PcaSvc",
+        "DisplayName": "Program Compatibility Assistant Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "PlugPlay",
+        "DisplayName": "Plug and Play",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "PolicyAgent",
+        "DisplayName": "IPsec Policy Agent",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k NetworkServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "PortmasterCore",
+        "DisplayName": "Portmaster Core",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\ProgramData\\Safing\\Portmaster\\portmaster-start.exe core-service --data C:\\ProgramData\\Safing\\Portmaster --input-signals",
+        "Status": "OK"
+      },
+      {
+        "Name": "Power",
+        "DisplayName": "Power",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "ProfSvc",
+        "DisplayName": "User Profile Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "RasMan",
+        "DisplayName": "Remote Access Connection Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs",
+        "Status": "OK"
+      },
+      {
+        "Name": "RmSvc",
+        "DisplayName": "Radio Management Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted",
+        "Status": "OK"
+      },
+      {
+        "Name": "RpcEptMapper",
+        "DisplayName": "RPC Endpoint Mapper",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k RPCSS -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "RpcSs",
+        "DisplayName": "Remote Procedure Call (RPC)",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k rpcss -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "RtkAudioUniversalService",
+        "DisplayName": "Realtek Audio Universal Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_179f26ff7cd32d0f\\RtkAudUService64.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "SamSs",
+        "DisplayName": "Security Accounts Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\lsass.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "Schedule",
+        "DisplayName": "Task Scheduler",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "SecurityHealthService",
+        "DisplayName": "Windows Security Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\SecurityHealthService.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "SENS",
+        "DisplayName": "System Event Notification Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Sense",
+        "DisplayName": "Windows Defender Advanced Threat Protection Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files\\Windows Defender Advanced Threat Protection\\MsSense.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "ShellHWDetection",
+        "DisplayName": "Shell Hardware Detection",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Spooler",
+        "DisplayName": "Print Spooler",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\spoolsv.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "SSDPSRV",
+        "DisplayName": "SSDP Discovery",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceAndNoImpersonation -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "ssh-agent",
+        "DisplayName": "OpenSSH Authentication Agent",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\OpenSSH\\ssh-agent.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "SstpSvc",
+        "DisplayName": "Secure Socket Tunneling Protocol Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "StateRepository",
+        "DisplayName": "State Repository Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k appmodel -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Steam Client Service",
+        "DisplayName": "Steam Client Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files (x86)\\Common Files\\Steam\\steamservice.exe\" /RunAsService",
+        "Status": "OK"
+      },
+      {
+        "Name": "stisvc",
+        "DisplayName": "Windows Image Acquisition (WIA)",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k imgsvc",
+        "Status": "OK"
+      },
+      {
+        "Name": "StorSvc",
+        "DisplayName": "Storage Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "SysMain",
+        "DisplayName": "SysMain",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "SystemEventsBroker",
+        "DisplayName": "System Events Broker",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "TabletInputService",
+        "DisplayName": "Touch Keyboard and Handwriting Panel Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Tailscale",
+        "DisplayName": "Tailscale",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files\\Tailscale\\tailscaled.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "Themes",
+        "DisplayName": "Themes",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "TimeBrokerSvc",
+        "DisplayName": "Time Broker",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "TokenBroker",
+        "DisplayName": "Web Account Manager",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "TrkWks",
+        "DisplayName": "Distributed Link Tracking Client",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "TrustedInstaller",
+        "DisplayName": "Windows Modules Installer",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\servicing\\TrustedInstaller.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "UserManager",
+        "DisplayName": "User Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "UsoSvc",
+        "DisplayName": "Update Orchestrator Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "VaultSvc",
+        "DisplayName": "Credential Manager",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\lsass.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "VMAuthdService",
+        "DisplayName": "VMware Authorization Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\VMware\\VMware Player\\vmware-authd.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "VMnetDHCP",
+        "DisplayName": "VMware DHCP Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\SysWOW64\\vmnetdhcp.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "VMUSBArbService",
+        "DisplayName": "VMware USB Arbitration Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\Common Files\\VMware\\USB\\vmware-usbarbitrator64.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "VMware NAT Service",
+        "DisplayName": "VMware NAT Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\SysWOW64\\vmnat.exe",
+        "Status": "OK"
+      },
+      {
+        "Name": "wbengine",
+        "DisplayName": "Block Level Backup Engine Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Windows\\system32\\wbengine.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "WbioSrvc",
+        "DisplayName": "Windows Biometric Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k WbioSvcGroup",
+        "Status": "OK"
+      },
+      {
+        "Name": "Wcmsvc",
+        "DisplayName": "Windows Connection Manager",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WdiServiceHost",
+        "DisplayName": "Diagnostic Service Host",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WdiSystemHost",
+        "DisplayName": "Diagnostic System Host",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WdNisSvc",
+        "DisplayName": "Microsoft Defender Antivirus Network Inspection Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.25030.2-0\\NisSrv.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "WebClient",
+        "DisplayName": "WebClient",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WinDefend",
+        "DisplayName": "Microsoft Defender Antivirus Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.25030.2-0\\MsMpEng.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "WinFsp.Launcher",
+        "DisplayName": "WinFsp.Launcher",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "\"C:\\Program Files (x86)\\WinFsp\\SxS\\sxs.20240927T103738Z\\bin\\launcher-x64.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "WinHttpAutoProxySvc",
+        "DisplayName": "WinHTTP Web Proxy Auto-Discovery Service",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "Winmgmt",
+        "DisplayName": "Windows Management Instrumentation",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WlanSvc",
+        "DisplayName": "WLAN AutoConfig",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WMPNetworkSvc",
+        "DisplayName": "Windows Media Player Network Sharing Service",
+        "State": "Stopped",
+        "StartMode": "Manual",
+        "PathName": "\"C:\\Program Files\\Windows Media Player\\wmpnetwk.exe\"",
+        "Status": "OK"
+      },
+      {
+        "Name": "WpnService",
+        "DisplayName": "Windows Push Notifications System Service",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WpnUserService_138a258",
+        "DisplayName": "Windows Push Notifications User Service_138a258",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k UnistackSvcGroup",
+        "Status": "OK"
+      },
+      {
+        "Name": "wscsvc",
+        "DisplayName": "Security Center",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "WSearch",
+        "DisplayName": "Windows Search",
+        "State": "Running",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\SearchIndexer.exe /Embedding",
+        "Status": "OK"
+      },
+      {
+        "Name": "wuauserv",
+        "DisplayName": "Windows Update",
+        "State": "Stopped",
+        "StartMode": "Auto",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      },
+      {
+        "Name": "XblAuthManager",
+        "DisplayName": "Xbox Live Auth Manager",
+        "State": "Running",
+        "StartMode": "Manual",
+        "PathName": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+        "Status": "OK"
+      }
+    ],
+    "StartupPrograms": [
+      {
+        "Location": "Folder:Common Startup",
+        "Name": "Portmaster Notifier.lnk",
+        "Command": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Portmaster Notifier.lnk"
+      },
+      {
+        "Location": "Folder:Common Startup",
+        "Name": "Tailscale.lnk",
+        "Command": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Tailscale.lnk"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "Discord",
+        "Command": "\"C:\\Users\\jack\\AppData\\Local\\Discord\\Update.exe\" --processStart Discord.exe"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "electron.app.NordPass",
+        "Command": "C:\\Users\\jack\\AppData\\Local\\Programs\\nordpass\\NordPass.exe \"--hidden\""
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "EpicGamesLauncher",
+        "Command": "\"C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Binaries\\Win64\\EpicGamesLauncher.exe\" -silent -launchcontext=boot"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "MicrosoftEdgeAutoLaunch_CB27B9E1E999CFEF12A04AF911F2DDF9",
+        "Command": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --no-startup-window --win-session-start"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "NokiaSuite.exe",
+        "Command": "D:\\Program Files\\Nokia\\Nokia Suite\\NokiaSuite.exe -tray"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "OneDrive",
+        "Command": "\"C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe\" /background"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry32\\Run",
+        "Name": "Steam",
+        "Command": "\"C:\\Program Files (x86)\\Steam\\steam.exe\" -silent"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "Discord",
+        "Command": "\"C:\\Users\\jack\\AppData\\Local\\Discord\\Update.exe\" --processStart Discord.exe"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "electron.app.NordPass",
+        "Command": "C:\\Users\\jack\\AppData\\Local\\Programs\\nordpass\\NordPass.exe \"--hidden\""
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "EpicGamesLauncher",
+        "Command": "\"C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Binaries\\Win64\\EpicGamesLauncher.exe\" -silent -launchcontext=boot"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "MicrosoftEdgeAutoLaunch_CB27B9E1E999CFEF12A04AF911F2DDF9",
+        "Command": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --no-startup-window --win-session-start"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "NokiaSuite.exe",
+        "Command": "D:\\Program Files\\Nokia\\Nokia Suite\\NokiaSuite.exe -tray"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "OneDrive",
+        "Command": "\"C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe\" /background"
+      },
+      {
+        "Location": "Reg:CURRENT_USER\\Registry64\\Run",
+        "Name": "Steam",
+        "Command": "\"C:\\Program Files (x86)\\Steam\\steam.exe\" -silent"
+      },
+      {
+        "Location": "Reg:LOCAL_MACHINE\\Registry32\\Run",
+        "Name": "ASUS Smart Display Control",
+        "Command": "\"C:\\Program Files (x86)\\ASUS\\ASUS Smart Display Control\\ASUSSmartDisplayControl.exe\""
+      },
+      {
+        "Location": "Reg:LOCAL_MACHINE\\Registry32\\Run",
+        "Name": "SunJavaUpdateSched",
+        "Command": "\"C:\\Program Files (x86)\\Common Files\\Java\\Java Update\\jusched.exe\""
+      },
+      {
+        "Location": "Reg:LOCAL_MACHINE\\Registry64\\Run",
+        "Name": "SecurityHealth",
+        "Command": "C:\\Windows\\system32\\SecurityHealthSystray.exe"
+      }
+    ],
+    "SystemEnvironmentVariables": {
+      "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+      "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+      "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+      "NUMBER_OF_PROCESSORS": "16",
+      "OS": "Windows_NT",
+      "Path": "C:\\Python313\\Scripts\\;C:\\Python313\\;C:\\Program Files (x86)\\VMware\\VMware Player\\bin\\;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Tailscale\\;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\CMake\\bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR;C:\\Program Files\\WindowsPowerShell\\Scripts;C:\\Program Files\\dotnet\\;C:\\Program Files\\PowerShell\\7-preview\\preview;C:\\Program Files\\PowerShell\\7\\;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin",
+      "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW",
+      "POWERSHELL_DISTRIBUTION_CHANNEL": "MSI:Windows 10 Pro",
+      "PROCESSOR_ARCHITECTURE": "AMD64",
+      "PROCESSOR_IDENTIFIER": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+      "PROCESSOR_LEVEL": "25",
+      "PROCESSOR_REVISION": "5000",
+      "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+      "TEMP": "C:\\Windows\\TEMP",
+      "TMP": "C:\\Windows\\TEMP",
+      "USERNAME": "SYSTEM",
+      "windir": "C:\\Windows"
+    },
+    "UserEnvironmentVariables": {
+      "ChocolateyLastPathUpdate": "133890082876896264",
+      "OneDrive": "C:\\Users\\jack\\OneDrive",
+      "OneDriveConsumer": "C:\\Users\\jack\\OneDrive",
+      "Path": "C:\\Users\\jack\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\;C:\\Users\\jack\\AppData\\Local\\Programs\\Python\\Python312\\;C:\\Users\\jack\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\jack\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files (x86)\\Nmap;C:\\Users\\jack\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\jack\\AppData\\Roaming\\npm;C:\\Users\\jack\\.dotnet\\tools",
+      "TEMP": "C:\\Users\\jack\\AppData\\Local\\Temp",
+      "TMP": "C:\\Users\\jack\\AppData\\Local\\Temp"
+    }
+  },
+  "Security": {
+    "IsAdmin": true,
+    "UacStatus": "Enabled",
+    "Antivirus": {
+      "Name": "Windows Defender",
+      "State": "Enabled but Not up-to-date"
+    },
+    "Firewall": {
+      "State": "Not Found (No product reported by WMI)"
+    },
+    "LocalUsers": [
+      {
+        "Name": "Administrator",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-500",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "bec",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1004",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "ben",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1002",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "DefaultAccount",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-503",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": false,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "defaultuser0",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1000",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "Guest",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-501",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": false,
+        "PasswordChangeable": false
+      },
+      {
+        "Name": "jack",
+        "FullName": "Jack Warren",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1001",
+        "IsDisabled": false,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "mia",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1003",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "test",
+        "FullName": "test",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1007",
+        "IsDisabled": false,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      },
+      {
+        "Name": "WDAGUtilityAccount",
+        "FullName": "N/A",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-504",
+        "IsDisabled": true,
+        "IsLocal": true,
+        "PasswordRequired": true,
+        "PasswordChangeable": true
+      }
+    ],
+    "LocalGroups": [
+      {
+        "Name": "Access Control Assistance Operators",
+        "SID": "S-1-5-32-579",
+        "Description": "Members of this group can remotely query authorization attributes and permissions for resources on this computer."
+      },
+      {
+        "Name": "Administrators",
+        "SID": "S-1-5-32-544",
+        "Description": "Administrators have complete and unrestricted access to the computer/domain"
+      },
+      {
+        "Name": "Backup Operators",
+        "SID": "S-1-5-32-551",
+        "Description": "Backup Operators can override security restrictions for the sole purpose of backing up or restoring files"
+      },
+      {
+        "Name": "Cryptographic Operators",
+        "SID": "S-1-5-32-569",
+        "Description": "Members are authorized to perform cryptographic operations."
+      },
+      {
+        "Name": "Device Owners",
+        "SID": "S-1-5-32-583",
+        "Description": "Members of this group can change system-wide settings."
+      },
+      {
+        "Name": "Distributed COM Users",
+        "SID": "S-1-5-32-562",
+        "Description": "Members are allowed to launch, activate and use Distributed COM objects on this machine."
+      },
+      {
+        "Name": "Event Log Readers",
+        "SID": "S-1-5-32-573",
+        "Description": "Members of this group can read event logs from local machine"
+      },
+      {
+        "Name": "Guests",
+        "SID": "S-1-5-32-546",
+        "Description": "Guests have the same access as members of the Users group by default, except for the Guest account which is further restricted"
+      },
+      {
+        "Name": "Hyper-V Administrators",
+        "SID": "S-1-5-32-578",
+        "Description": "Members of this group have complete and unrestricted access to all features of Hyper-V."
+      },
+      {
+        "Name": "IIS_IUSRS",
+        "SID": "S-1-5-32-568",
+        "Description": "Built-in group used by Internet Information Services."
+      },
+      {
+        "Name": "Network Configuration Operators",
+        "SID": "S-1-5-32-556",
+        "Description": "Members in this group can have some administrative privileges to manage configuration of networking features"
+      },
+      {
+        "Name": "Performance Log Users",
+        "SID": "S-1-5-32-559",
+        "Description": "Members of this group may schedule logging of performance counters, enable trace providers, and collect event traces both locally and via remote access to this computer"
+      },
+      {
+        "Name": "Performance Monitor Users",
+        "SID": "S-1-5-32-558",
+        "Description": "Members of this group can access performance counter data locally and remotely"
+      },
+      {
+        "Name": "Power Users",
+        "SID": "S-1-5-32-547",
+        "Description": "Power Users are included for backwards compatibility and possess limited administrative powers"
+      },
+      {
+        "Name": "Remote Desktop Users",
+        "SID": "S-1-5-32-555",
+        "Description": "Members in this group are granted the right to logon remotely"
+      },
+      {
+        "Name": "Remote Management Users",
+        "SID": "S-1-5-32-580",
+        "Description": "Members of this group can access WMI resources over management protocols (such as WS-Management via the Windows Remote Management service). This applies only to WMI namespaces that grant access to the user."
+      },
+      {
+        "Name": "Replicator",
+        "SID": "S-1-5-32-552",
+        "Description": "Supports file replication in a domain"
+      },
+      {
+        "Name": "System Managed Accounts Group",
+        "SID": "S-1-5-32-581",
+        "Description": "Members of this group are managed by the system."
+      },
+      {
+        "Name": "Users",
+        "SID": "S-1-5-32-545",
+        "Description": "Users are prevented from making accidental or intentional system-wide changes and can run most applications"
+      },
+      {
+        "Name": "__vmware__",
+        "SID": "S-1-5-21-3282010388-2975178795-1062935351-1006",
+        "Description": "VMware User Group"
+      }
+    ],
+    "NetworkShares": [
+      {
+        "Name": "ADMIN$",
+        "Path": "C:\\Windows",
+        "Description": "Remote Admin",
+        "Type": 2147483648
+      },
+      {
+        "Name": "C$",
+        "Path": "C:\\",
+        "Description": "Default share",
+        "Type": 2147483648
+      },
+      {
+        "Name": "IPC$",
+        "Path": "N/A",
+        "Description": "Remote IPC",
+        "Type": 2147483651
+      }
+    ],
+    "Tpm": {
+      "IsPresent": true,
+      "IsEnabled": true,
+      "IsActivated": true,
+      "ManufacturerVersion": "3.57.0.5",
+      "ManufacturerIdTxt": "AMD",
+      "SpecVersion": "2.0, 0, 1.38",
+      "Status": "Ready"
+    },
+    "IsSecureBootEnabled": true,
+    "BiosMode": "UEFI",
+    "SpecificCollectionErrors": {
+      "Firewall_NotFound": "WMI query succeeded but returned no FirewallProduct instances."
+    }
+  },
+  "Performance": {
+    "OverallCpuUsagePercent": "4.46",
+    "AvailableMemoryMB": "5962",
+    "TotalDiskQueueLength": "0",
+    "TopMemoryProcesses": [
+      {
+        "Pid": 13176,
+        "Name": "Microsoft.CodeAnalysis.LanguageServer",
+        "WorkingSetBytes": 855236608,
+        "TotalProcessorTimeMs": 452578,
+        "Status": "Running"
+      },
+      {
+        "Pid": 17544,
+        "Name": "chrome",
+        "WorkingSetBytes": 826834944,
+        "TotalProcessorTimeMs": 524359,
+        "Status": "Running"
+      },
+      {
+        "Pid": 2560,
+        "Name": "chrome",
+        "WorkingSetBytes": 704749568,
+        "TotalProcessorTimeMs": 4035671,
+        "Status": "Running"
+      },
+      {
+        "Pid": 9892,
+        "Name": "Code",
+        "WorkingSetBytes": 670109696,
+        "TotalProcessorTimeMs": 496140,
+        "Status": "Running"
+      },
+      {
+        "Pid": 3244,
+        "Name": "Memory Compression",
+        "WorkingSetBytes": 472866816,
+        "TotalProcessorTimeMs": 14171,
+        "Status": "Running"
+      },
+      {
+        "Pid": 4304,
+        "Name": "Code",
+        "WorkingSetBytes": 407142400,
+        "TotalProcessorTimeMs": 52031,
+        "Status": "Running"
+      },
+      {
+        "Pid": 4180,
+        "Name": "portmaster-core_v1-6-10",
+        "WorkingSetBytes": 402841600,
+        "TotalProcessorTimeMs": 181968,
+        "Status": "Running"
+      },
+      {
+        "Pid": 5812,
+        "Name": "MsMpEng",
+        "WorkingSetBytes": 309657600,
+        "TotalProcessorTimeMs": 183515,
+        "Status": "Running"
+      },
+      {
+        "Pid": 5508,
+        "Name": "WINWORD",
+        "WorkingSetBytes": 284041216,
+        "TotalProcessorTimeMs": 18265,
+        "Status": "Running"
+      },
+      {
+        "Pid": 20332,
+        "Name": "dotnet",
+        "WorkingSetBytes": 230367232,
+        "TotalProcessorTimeMs": 5250,
+        "Status": "Running"
+      }
+    ],
+    "TopCpuProcesses": [
+      {
+        "Pid": 2560,
+        "Name": "chrome",
+        "WorkingSetBytes": 704749568,
+        "TotalProcessorTimeMs": 4035671,
+        "Status": "Running"
+      },
+      {
+        "Pid": 11908,
+        "Name": "chrome",
+        "WorkingSetBytes": 182861824,
+        "TotalProcessorTimeMs": 871000,
+        "Status": "Running"
+      },
+      {
+        "Pid": 17544,
+        "Name": "chrome",
+        "WorkingSetBytes": 826834944,
+        "TotalProcessorTimeMs": 524359,
+        "Status": "Running"
+      },
+      {
+        "Pid": 9892,
+        "Name": "Code",
+        "WorkingSetBytes": 670109696,
+        "TotalProcessorTimeMs": 496140,
+        "Status": "Running"
+      },
+      {
+        "Pid": 13176,
+        "Name": "Microsoft.CodeAnalysis.LanguageServer",
+        "WorkingSetBytes": 855236608,
+        "TotalProcessorTimeMs": 452578,
+        "Status": "Running"
+      },
+      {
+        "Pid": 4,
+        "Name": "System",
+        "WorkingSetBytes": 3092480,
+        "TotalProcessorTimeMs": 422578,
+        "Status": "Running"
+      },
+      {
+        "Pid": 2088,
+        "Name": "dwm",
+        "WorkingSetBytes": 81969152,
+        "TotalProcessorTimeMs": 338328,
+        "Status": "Running"
+      },
+      {
+        "Pid": 15444,
+        "Name": "chrome",
+        "WorkingSetBytes": 222224384,
+        "TotalProcessorTimeMs": 251140,
+        "Status": "Running"
+      },
+      {
+        "Pid": 5812,
+        "Name": "MsMpEng",
+        "WorkingSetBytes": 318590976,
+        "TotalProcessorTimeMs": 183531,
+        "Status": "Running"
+      },
+      {
+        "Pid": 4180,
+        "Name": "portmaster-core_v1-6-10",
+        "WorkingSetBytes": 402841600,
+        "TotalProcessorTimeMs": 181968,
+        "Status": "Running"
+      }
+    ]
+  },
+  "Network": {
+    "Adapters": [
+      {
+        "Name": "Ethernet",
+        "Description": "Realtek PCIe GbE Family Controller",
+        "Id": "{1918DFDD-6B50-46B9-B944-0DE4D5345D7D}",
+        "Type": "Ethernet",
+        "Status": "Down",
+        "MacAddress": "50EBF631BF45",
+        "SpeedMbps": -1,
+        "IsReceiveOnly": false,
+        "IpAddresses": [],
+        "Gateways": [],
+        "DnsServers": [],
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "Tailscale",
+        "Description": "Tailscale Tunnel",
+        "Id": "{37217669-42DA-4657-A55B-0D995D328250}",
+        "InterfaceIndex": 60,
+        "Type": 53,
+        "Status": "Up",
+        "MacAddress": "",
+        "SpeedMbps": 100000,
+        "IsReceiveOnly": false,
+        "IpAddresses": [
+          "fd7a:115c:a1e0::1d01:b352",
+          "fe80::d8ff:5060:f230:9168%60",
+          "100.95.179.81"
+        ],
+        "Gateways": [],
+        "DnsServers": [
+          "fec0:0:0:ffff::1",
+          "fec0:0:0:ffff::2",
+          "fec0:0:0:ffff::3"
+        ],
+        "DnsSuffix": "rove-crocodile.ts.net",
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "OpenVPN Data Channel Offload for NordVPN",
+        "Description": "OpenVPN Data Channel Offload",
+        "Id": "{04F5DBBD-5923-4CCC-991E-26531477E98B}",
+        "Type": 53,
+        "Status": "Down",
+        "MacAddress": "",
+        "SpeedMbps": 1000,
+        "IsReceiveOnly": false,
+        "IpAddresses": [],
+        "Gateways": [],
+        "DnsServers": [],
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "Local Area Connection 2",
+        "Description": "TAP-NordVPN Windows Adapter V9",
+        "Id": "{F45BEF85-F0E3-42C9-87E9-9CD43B1C2D23}",
+        "Type": 53,
+        "Status": "Down",
+        "MacAddress": "00FFF45BEF85",
+        "SpeedMbps": 1000,
+        "IsReceiveOnly": false,
+        "IpAddresses": [],
+        "Gateways": [],
+        "DnsServers": [],
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "Local Area Connection* 9",
+        "Description": "Microsoft Wi-Fi Direct Virtual Adapter",
+        "Id": "{82C8FF36-4E82-4A9B-820B-4B5768515863}",
+        "Type": "Wireless80211",
+        "Status": "Down",
+        "MacAddress": "EE2E98857427",
+        "SpeedMbps": -1,
+        "IsReceiveOnly": false,
+        "IpAddresses": [],
+        "Gateways": [],
+        "DnsServers": [],
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "Local Area Connection* 10",
+        "Description": "Microsoft Wi-Fi Direct Virtual Adapter #2",
+        "Id": "{4FF6F21C-D31F-4622-9C17-9EA0FC5EEA41}",
+        "Type": "Wireless80211",
+        "Status": "Down",
+        "MacAddress": "EE2E98857437",
+        "SpeedMbps": -1,
+        "IsReceiveOnly": false,
+        "IpAddresses": [],
+        "Gateways": [],
+        "DnsServers": [],
+        "WinsServers": [],
+        "DhcpEnabled": false
+      },
+      {
+        "Name": "VMware Network Adapter VMnet1",
+        "Description": "VMware Virtual Ethernet Adapter for VMnet1",
+        "Id": "{67E32BE5-9182-413F-81E1-B930FFE85E51}",
+        "InterfaceIndex": 10,
+        "Type": "Ethernet",
+        "Status": "Up",
+        "MacAddress": "005056C00001",
+        "SpeedMbps": 100,
+        "IsReceiveOnly": false,
+        "IpAddresses": [
+          "fe80::536b:275c:8d8c:71dd%10",
+          "192.168.64.1"
+        ],
+        "Gateways": [],
+        "DnsServers": [
+          "fec0:0:0:ffff::1",
+          "fec0:0:0:ffff::2",
+          "fec0:0:0:ffff::3"
+        ],
+        "DnsSuffix": "",
+        "WinsServers": [],
+        "DhcpEnabled": true,
+        "DhcpLeaseObtained": "2025-04-18T16:22:26+10:00",
+        "DhcpLeaseExpires": "2025-04-18T16:52:26+10:00",
+        "WmiServiceName": "VMnetAdapter"
+      },
+      {
+        "Name": "VMware Network Adapter VMnet8",
+        "Description": "VMware Virtual Ethernet Adapter for VMnet8",
+        "Id": "{278E25F3-78AB-478A-B419-6D35544F9B9E}",
+        "InterfaceIndex": 5,
+        "Type": "Ethernet",
+        "Status": "Up",
+        "MacAddress": "005056C00008",
+        "SpeedMbps": 100,
+        "IsReceiveOnly": false,
+        "IpAddresses": [
+          "fe80::ee08:35eb:6c0c:26c2%5",
+          "192.168.89.1"
+        ],
+        "Gateways": [],
+        "DnsServers": [
+          "fec0:0:0:ffff::1",
+          "fec0:0:0:ffff::2",
+          "fec0:0:0:ffff::3"
+        ],
+        "DnsSuffix": "",
+        "WinsServers": [
+          "192.168.89.2"
+        ],
+        "DhcpEnabled": true,
+        "DhcpLeaseObtained": "2025-04-18T16:22:26+10:00",
+        "DhcpLeaseExpires": "2025-04-18T16:52:26+10:00",
+        "WmiServiceName": "VMnetAdapter"
+      },
+      {
+        "Name": "Wi-Fi",
+        "Description": "MediaTek Wi-Fi 6 MT7921 Wireless LAN Card",
+        "Id": "{74F775D4-577E-4E1F-8B64-952B05C7304D}",
+        "InterfaceIndex": 12,
+        "Type": "Wireless80211",
+        "Status": "Up",
+        "MacAddress": "EC2E98857407",
+        "SpeedMbps": 866,
+        "IsReceiveOnly": false,
+        "IpAddresses": [
+          "fe80::9688:ce51:7454:d0e3%12",
+          "192.168.1.153"
+        ],
+        "Gateways": [
+          "192.168.1.1"
+        ],
+        "DnsServers": [
+          "fe80::1213:31ff:fecd:6de2%12",
+          "192.168.1.1",
+          "fe80::1213:31ff:fecd:6de2%12"
+        ],
+        "DnsSuffix": "lan",
+        "WinsServers": [],
+        "DhcpEnabled": true,
+        "DhcpLeaseObtained": "2025-04-18T06:00:52+10:00",
+        "DhcpLeaseExpires": "2025-04-19T06:00:52+10:00",
+        "WmiServiceName": "mtkwlex"
+      },
+      {
+        "Name": "Loopback Pseudo-Interface 1",
+        "Description": "Software Loopback Interface 1",
+        "Id": "{06B64901-7CB1-11EF-8850-806E6F6E6963}",
+        "InterfaceIndex": 1,
+        "Type": "Loopback",
+        "Status": "Up",
+        "MacAddress": "",
+        "SpeedMbps": 1073,
+        "IsReceiveOnly": false,
+        "IpAddresses": [
+          "::1",
+          "127.0.0.1"
+        ],
+        "Gateways": [],
+        "DnsServers": [
+          "fec0:0:0:ffff::1",
+          "fec0:0:0:ffff::2",
+          "fec0:0:0:ffff::3"
+        ],
+        "DnsSuffix": "",
+        "WinsServers": [],
+        "DhcpEnabled": false
+      }
+    ],
+    "ActiveTcpListeners": [
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 135,
+        "OwningPid": 1476,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 445,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 902,
+        "OwningPid": 5624,
+        "OwningProcessName": "vmware-authd"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 912,
+        "OwningPid": 5624,
+        "OwningProcessName": "vmware-authd"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5040,
+        "OwningPid": 1236,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5357,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 7680,
+        "OwningPid": 4156,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49664,
+        "OwningPid": 1148,
+        "OwningProcessName": "lsass"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49665,
+        "OwningPid": 1068,
+        "OwningProcessName": "wininit"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49666,
+        "OwningPid": 1776,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49667,
+        "OwningPid": 2352,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49668,
+        "OwningPid": 4520,
+        "OwningProcessName": "spoolsv"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49671,
+        "OwningPid": 1140,
+        "OwningProcessName": "services"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 139,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 44166,
+        "OwningPid": 10156,
+        "OwningProcessName": "tailscaled"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 817,
+        "OwningPid": 4180,
+        "OwningProcessName": "portmaster-core_v1-6-10"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 7778,
+        "OwningPid": 5188,
+        "OwningProcessName": "ArmouryCrateControlInterface"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 24830,
+        "OwningPid": 5168,
+        "OwningProcessName": "AsusSoftwareManager"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 27017,
+        "OwningPid": 5564,
+        "OwningProcessName": "mongod"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 50923,
+        "OwningPid": 5188,
+        "OwningProcessName": "ArmouryCrateControlInterface"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 139,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "192.168.64.1",
+        "LocalPort": 139,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "192.168.89.1",
+        "LocalPort": 139,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 135,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 445,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 5357,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 7680,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49664,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49665,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49666,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49667,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49668,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "::",
+        "LocalPort": 49671,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "TCP",
+        "LocalAddress": "fd7a:115c:a1e0::1d01:b352",
+        "LocalPort": 65158,
+        "OwningProcessName": "PID Not Found"
+      }
+    ],
+    "ActiveUdpListeners": [
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 53,
+        "OwningPid": 4180,
+        "OwningProcessName": "portmaster-core_v1-6-10"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 500,
+        "OwningPid": 5280,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 3702,
+        "OwningPid": 5676,
+        "OwningProcessName": "dasHost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 3702,
+        "OwningPid": 5676,
+        "OwningProcessName": "dasHost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 3702,
+        "OwningPid": 5676,
+        "OwningProcessName": "dasHost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 3702,
+        "OwningPid": 5676,
+        "OwningProcessName": "dasHost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 4500,
+        "OwningPid": 5280,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5050,
+        "OwningPid": 1236,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5353,
+        "OwningPid": 15444,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 5355,
+        "OwningPid": 2224,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 41641,
+        "OwningPid": 10156,
+        "OwningProcessName": "tailscaled"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 49677,
+        "OwningPid": 10144,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 50183,
+        "OwningPid": 4180,
+        "OwningProcessName": "portmaster-core_v1-6-10"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 54942,
+        "OwningPid": 5676,
+        "OwningProcessName": "dasHost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "0.0.0.0",
+        "LocalPort": 63085,
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 137,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 138,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 1900,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "100.95.179.81",
+        "LocalPort": 53482,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 1900,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 51099,
+        "OwningPid": 10944,
+        "OwningProcessName": "nvcontainer"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 53486,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 56393,
+        "OwningPid": 4860,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 137,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 138,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 1900,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 53485,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.64.1",
+        "LocalPort": 137,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.64.1",
+        "LocalPort": 138,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.64.1",
+        "LocalPort": 1900,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.64.1",
+        "LocalPort": 53483,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.89.1",
+        "LocalPort": 137,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.89.1",
+        "LocalPort": 138,
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.89.1",
+        "LocalPort": 1900,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "192.168.89.1",
+        "LocalPort": 53484,
+        "OwningPid": 7736,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 53,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 500,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 3702,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 3702,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 3702,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 3702,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 4500,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5353,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5353,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5353,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5353,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5353,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 5355,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 41641,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 49678,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 50184,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::",
+        "LocalPort": 54943,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::1",
+        "LocalPort": 1900,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "::1",
+        "LocalPort": 53481,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::536b:275c:8d8c:71dd%10",
+        "LocalPort": 1900,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::536b:275c:8d8c:71dd%10",
+        "LocalPort": 53478,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::9688:ce51:7454:d0e3%12",
+        "LocalPort": 1900,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::9688:ce51:7454:d0e3%12",
+        "LocalPort": 53480,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::d8ff:5060:f230:9168%60",
+        "LocalPort": 1900,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::d8ff:5060:f230:9168%60",
+        "LocalPort": 53477,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::ee08:35eb:6c0c:26c2%5",
+        "LocalPort": 1900,
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "Protocol": "UDP",
+        "LocalAddress": "fe80::ee08:35eb:6c0c:26c2%5",
+        "LocalPort": 53479,
+        "OwningProcessName": "PID Not Found"
+      }
+    ],
+    "ActiveTcpConnections": [
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 49409,
+        "RemoteAddress": "172.172.255.218",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 5796,
+        "OwningProcessName": "svchost"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 49840,
+        "RemoteAddress": "43.245.48.220",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 10156,
+        "OwningProcessName": "tailscaled"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50681,
+        "RemoteAddress": "3.74.105.242",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 10156,
+        "OwningProcessName": "tailscaled"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50702,
+        "RemoteAddress": "74.125.200.188",
+        "RemotePort": 5228,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50709,
+        "RemoteAddress": "192.168.1.144",
+        "RemotePort": 8009,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50712,
+        "RemoteAddress": "192.168.1.131",
+        "RemotePort": 8009,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50713,
+        "RemoteAddress": "192.168.1.69",
+        "RemotePort": 8009,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50714,
+        "RemoteAddress": "192.168.1.16",
+        "RemotePort": 8009,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50715,
+        "RemoteAddress": "192.168.1.252",
+        "RemotePort": 8009,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 50824,
+        "RemoteAddress": "23.219.86.81",
+        "RemotePort": 443,
+        "State": "CloseWait",
+        "OwningPid": 10944,
+        "OwningProcessName": "nvcontainer"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 51402,
+        "RemoteAddress": "52.207.202.187",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 7648,
+        "OwningProcessName": "tailscaled"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 51948,
+        "RemoteAddress": "1.1.1.2",
+        "RemotePort": 853,
+        "State": "Established",
+        "OwningPid": 4180,
+        "OwningProcessName": "portmaster-core_v1-6-10"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 51993,
+        "RemoteAddress": "13.107.226.254",
+        "RemotePort": 443,
+        "State": "CloseWait",
+        "OwningPid": 11496,
+        "OwningProcessName": "SearchApp"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52286,
+        "RemoteAddress": "192.168.1.28",
+        "RemotePort": 445,
+        "State": "Established",
+        "OwningPid": 4,
+        "OwningProcessName": "System"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52314,
+        "RemoteAddress": "52.111.224.14",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 5508,
+        "OwningProcessName": "WINWORD"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52361,
+        "RemoteAddress": "23.219.86.83",
+        "RemotePort": 443,
+        "State": "CloseWait",
+        "OwningPid": 11496,
+        "OwningProcessName": "SearchApp"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52362,
+        "RemoteAddress": "40.99.133.242",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 11496,
+        "OwningProcessName": "SearchApp"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52365,
+        "RemoteAddress": "13.107.213.254",
+        "RemotePort": 443,
+        "State": "CloseWait",
+        "OwningPid": 11496,
+        "OwningProcessName": "SearchApp"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52373,
+        "RemoteAddress": "52.182.143.210",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 720,
+        "OwningProcessName": "Code"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52378,
+        "RemoteAddress": "23.46.10.43",
+        "RemotePort": 443,
+        "State": "Established",
+        "OwningPid": 12464,
+        "OwningProcessName": "chrome"
+      },
+      {
+        "LocalAddress": "192.168.1.153",
+        "LocalPort": 52385,
+        "RemoteAddress": "192.168.1.1",
+        "RemotePort": 5000,
+        "State": "SynSent",
+        "OwningProcessName": "PID Not Found"
+      },
+      {
+        "LocalAddress": "::1",
+        "LocalPort": 52386,
+        "RemoteAddress": "::1",
+        "RemotePort": 5985,
+        "State": "SynSent",
+        "OwningProcessName": "PID Not Found"
+      }
+    ],
+    "ConnectivityTests": {
+      "GatewayPing": {
+        "Target": "192.168.1.1",
+        "Status": "Success",
+        "RoundtripTimeMs": 1,
+        "ResolvedIpAddress": "192.168.1.1"
+      },
+      "DnsPings": [
+        {
+          "Target": "8.8.8.8",
+          "Status": "Success",
+          "RoundtripTimeMs": 23,
+          "ResolvedIpAddress": "8.8.8.8"
+        },
+        {
+          "Target": "1.1.1.1",
+          "Status": "Success",
+          "RoundtripTimeMs": 10,
+          "ResolvedIpAddress": "1.1.1.1"
+        }
+      ],
+      "DnsResolution": {
+        "Hostname": "www.cloudflare.com",
+        "Success": true,
+        "ResolvedIpAddresses": [
+          "104.16.123.96",
+          "104.16.124.96"
+        ],
+        "ResolutionTimeMs": 23
+      },
+      "TracerouteResults": []
+    },
+    "SpecificCollectionErrors": {
+      "DriverDate_WMI_Error": "Warning: Failed to query Win32_NetworkAdapter: Error getting WMI result count (Code: InvalidQuery): Invalid query ",
+      "DriverDate_Tailscale ({37217669-42DA-4657-A55B-0D995D328250})": "Info: Driver date could not be determined via WMI.",
+      "DriverDate_VMware Network Adapter VMnet1 ({67E32BE5-9182-413F-81E1-B930FFE85E51})": "Info: Driver date could not be determined via WMI.",
+      "DriverDate_VMware Network Adapter VMnet8 ({278E25F3-78AB-478A-B419-6D35544F9B9E})": "Info: Driver date could not be determined via WMI.",
+      "DriverDate_Wi-Fi ({74F775D4-577E-4E1F-8B64-952B05C7304D})": "Info: Driver date could not be determined via WMI.",
+      "DriverDate_Loopback Pseudo-Interface 1 ({06B64901-7CB1-11EF-8850-806E6F6E6963})": "Info: Driver date could not be determined via WMI."
+    }
+  },
+  "Events": {
+    "SystemLogEntries": [
+      {
+        "TimeGenerated": "2025-04-18T16:30:38+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:30:35+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:17:47+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:17:43+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:17:03+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:16:59+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:47:23+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:47:20+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:47:10+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:47:07+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:53+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:44+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:40+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:23+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:19+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:45:49+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:45:46+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:44:52+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'application-specific', 'Local', 'Activation', '{B52D54BB-4818-4EB9-AA80-F9EACD371DF8}', '{9E175B9C-F52A-11D8-B9A5-505054503030}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:44:49+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:44:33+10:00",
+        "EntryType": "Warning",
+        "Source": "DCOM",
+        "InstanceId": 10016,
+        "Message": "The description for Event ID '10016' in Source 'DCOM' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'machine-default', 'Local', 'Activation', '{C2F03A33-21F5-47FA-B4BB-156362A2F239}', '{316CDED5-E4AE-4B15-9113-7055D84DCC97}', 'ASUSNB01', 'jack', 'S-1-5-21-3282010388-2975178795-1062935351-1001', 'LocalHost (Using LRPC)', 'Unavailable', 'Unavailable'"
+      }
+    ],
+    "ApplicationLogEntries": [
+      {
+        "TimeGenerated": "2025-04-18T16:32:30+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:30:32+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:16:57+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T16:16:46+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:46:36+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:45:44+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:44:25+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T15:40:32+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:44:45+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:44:09+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:38:30+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:38:04+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:31:34+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T14:13:13+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T12:38:34+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T12:28:52+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T12:18:22+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      },
+      {
+        "TimeGenerated": "2025-04-18T06:00:38+10:00",
+        "EntryType": "Error",
+        "Source": "CertEnroll",
+        "InstanceId": 3260678230,
+        "Message": "The description for Event ID '-1034289066' in Source 'CertEnroll' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'WORKGROUP\\ASUSNB01$', 'https://AMD-KeyId-52fb59e29aa83a962fb9eef0fe5b4811de6b751e.microsoftaik.azure.net/templates/Aik/scep', 'GetCACaps ', 'GET(0ms)', 'GetCACaps', 'The server name or address could not be resolved 0x80072ee7 (WinHttp: 12007 ERROR_WINHTTP_NAME_NOT_RESOLVED)'"
+      },
+      {
+        "TimeGenerated": "2025-04-18T06:00:35+10:00",
+        "EntryType": "Warning",
+        "Source": "vmauthd",
+        "InstanceId": 1000,
+        "Message": "SSLConfigLoad: Failed to load OpenSSL config file."
+      },
+      {
+        "TimeGenerated": "2025-04-18T02:48:31+10:00",
+        "EntryType": "Warning",
+        "Source": "Microsoft-Windows-PerfProc",
+        "InstanceId": 2002,
+        "Message": "Unable to open the job object \\BaseNamedObjects\\WmiProviderSubSystemHostJob for query access. The calling process may not have permission to open this job. The first four bytes (DWORD) of the Data section contains the status code."
+      }
+    ]
+  },
+  "Stability": {
+    "RecentCrashDumps": []
+  },
+  "Analysis": {
+    "PotentialIssues": [
+      "[INVESTIGATE] Found 20 recent Error/Warning events in System log. Review logs using Event Viewer for specific critical errors."
+    ],
+    "Suggestions": [
+      "[RECOMMENDED] Consider running System File Checker ('sfc /scannow') as admin to check for OS file corruption.",
+      "[INVESTIGATE] Service 'Google Updater Internal Service (GoogleUpdaterInternalService137.0.7115.0)' (GoogleUpdaterInternalService137.0.7115.0) is set to Auto start but is currently Stopped. Check if this service should be running.",
+      "[INVESTIGATE] Service 'Google Updater Service (GoogleUpdaterService137.0.7115.0)' (GoogleUpdaterService137.0.7115.0) is set to Auto start but is currently Stopped. Check if this service should be running.",
+      "[INVESTIGATE] Service 'Windows Update' (wuauserv) is set to Auto start but is currently Stopped. Check if this service should be running.",
+      "[RECOMMENDED] Antivirus 'Windows Defender' definitions may be out of date. Update antivirus software.",
+      "[RECOMMENDED] Found 20 recent Error/Warning events in Application log. Review logs for details if experiencing issues.",
+      "[RECOMMENDED] Graphics driver for 'AMD Radeon(TM) Graphics' appears old (Date: 2021-01-07). Consider updating from the manufacturer's website (NVIDIA/AMD/Intel).",
+      "[RECOMMENDED] Run System File Checker: Open Command Prompt or PowerShell as Admin and type 'sfc /scannow'.",
+      "[RECOMMENDED] Check for and install pending Windows Updates.",
+      "[RECOMMENDED] Perform a full system scan for malware using a reputable security tool."
+    ],
+    "Info": [
+      "[INFO] SFC scan found no integrity violations (Unknown Time).",
+      "[INFO] DISM CheckHealth found no component store corruption (Unknown Time).",
+      "[INFO] SMART status is Not Supported or Not Reported for Disk #0 (HFM512GD3JX013N).",
+      "[INFO] BitLocker status for Volume N/A indicates it may not be encryptable or BitLocker is not installed/configured.",
+      "[INFO] Non-Microsoft service 'Adobe Acrobat Update Service' (AdobeARMservice) is running from path: C:\\Program Files (x86)\\Common Files\\Adobe\\ARM\\1.0\\armsvc.exe",
+      "[INFO] Non-Microsoft service 'MongoDB Server (MongoDB)' (MongoDB) is running from path: C:\\Program Files\\MongoDB\\Server\\8.0\\bin\\mongod.exe\" --config \"C:\\Program Files\\MongoDB\\Server\\8.0\\bin\\mongod.cfg\" --service",
+      "[INFO] Non-Microsoft service 'NordSec Update Service' (NordUpdaterService) is running from path: C:\\Program Files\\NordUpdater\\NordUpdateService.exe",
+      "[INFO] Non-Microsoft service 'NVIDIA LocalSystem Container' (NvContainerLocalSystem) is running from path: C:\\Program Files\\NVIDIA Corporation\\NvContainer\\nvcontainer.exe\" -s NvContainerLocalSystem -a -f \"C:\\ProgramData\\NVIDIA Corporation\\NVIDIA app\\NvContainer\\NvContainerLocalSystem.log\" -l 3 -d \"C:\\Program Files\\NVIDIA Corporation\\NvContainer\\plugins\\LocalSystem\" -r -p 30000  -ert",
+      "[INFO] Non-Microsoft service 'Portmaster Core' (PortmasterCore) is running from path: C:\\ProgramData\\Safing\\Portmaster\\portmaster-start.exe core-service --data C:\\ProgramData\\Safing\\Portmaster --input-signals",
+      "[INFO] Non-Microsoft service 'Tailscale' (Tailscale) is running from path: C:\\Program Files\\Tailscale\\tailscaled.exe",
+      "[INFO] Non-Microsoft service 'VMware Authorization Service' (VMAuthdService) is running from path: C:\\Program Files (x86)\\VMware\\VMware Player\\vmware-authd.exe",
+      "[INFO] Non-Microsoft service 'VMware USB Arbitration Service' (VMUSBArbService) is running from path: C:\\Program Files (x86)\\Common Files\\VMware\\USB\\vmware-usbarbitrator64.exe",
+      "[INFO] Non-Microsoft service 'WinFsp.Launcher' (WinFsp.Launcher) is running from path: C:\\Program Files (x86)\\WinFsp\\SxS\\sxs.20240927T103738Z\\bin\\launcher-x64.exe"
+    ],
+    "CriticalEventsFound": []
+  },
+  "Configuration": {
+    "AnalysisThresholds": {
+      "HighMemoryUsagePercent": 90,
+      "ElevatedMemoryUsagePercent": 80,
+      "CriticalDiskSpacePercent": 5,
+      "LowDiskSpacePercent": 15,
+      "HighCpuUsagePercent": 90,
+      "ElevatedCpuUsagePercent": 75,
+      "HighDiskQueueLength": 5,
+      "MaxSystemLogErrorsIssue": 15,
+      "MaxSystemLogErrorsSuggestion": 5,
+      "MaxAppLogErrorsIssue": 100,
+      "MaxAppLogErrorsSuggestion": 7,
+      "MaxUptimeDaysSuggestion": 7,
+      "DriverAgeWarningYears": 1,
+      "MaxPingLatencyWarningMs": 100,
+      "MaxTracerouteHopLatencyWarningMs": 150
+    },
+    "NetworkSettings": {
+      "DefaultDnsTestHostname": "www.cloudflare.com"
+    }
+  }
+}

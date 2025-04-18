@@ -5,7 +5,7 @@ using System.Linq;
 using System.Management;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
-using DiagnosticToolAllInOne.Helpers;
+using DiagnosticToolAllInOne.Helpers; // Ensure all helpers are referenced
 
 namespace DiagnosticToolAllInOne.Collectors
 {
@@ -23,20 +23,21 @@ namespace DiagnosticToolAllInOne.Collectors
 
             try
             {
-                // --- Processor Info --- (No changes needed for raw values here)
+                // --- Processor Info ---
                 WmiHelper.ProcessWmiResults(
                     WmiHelper.Query("Win32_Processor", null, WMI_CIMV2),
-                    obj => {
-                        hardwareInfo.Processors ??= new(); // Ensure list is initialized
+                    obj =>
+                    {
+                        hardwareInfo.Processors ??= new List<ProcessorInfo>(); // Initialize if null
                         hardwareInfo.Processors.Add(new ProcessorInfo
                         {
-                             Name = WmiHelper.GetProperty(obj, "Name"),
-                             Socket = WmiHelper.GetProperty(obj, "SocketDesignation"),
-                             Cores = uint.TryParse(WmiHelper.GetProperty(obj, "NumberOfCores"), out uint cores) ? cores : null,
-                             LogicalProcessors = uint.TryParse(WmiHelper.GetProperty(obj, "NumberOfLogicalProcessors"), out uint lps) ? lps : null,
-                             MaxSpeedMHz = uint.TryParse(WmiHelper.GetProperty(obj, "MaxClockSpeed"), out uint speed) ? speed : null,
-                             L2Cache = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "L2CacheSize", "0")) * 1024), // KB to Bytes
-                             L3Cache = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "L3CacheSize", "0")) * 1024)  // KB to Bytes
+                            Name = WmiHelper.GetProperty(obj, "Name"),
+                            Socket = WmiHelper.GetProperty(obj, "SocketDesignation"),
+                            Cores = uint.TryParse(WmiHelper.GetProperty(obj, "NumberOfCores"), out uint cores) ? cores : null,
+                            LogicalProcessors = uint.TryParse(WmiHelper.GetProperty(obj, "NumberOfLogicalProcessors"), out uint lps) ? lps : null,
+                            MaxSpeedMHz = uint.TryParse(WmiHelper.GetProperty(obj, "MaxClockSpeed"), out uint speed) ? speed : null,
+                            L2CacheSizeKB = ulong.TryParse(WmiHelper.GetProperty(obj, "L2CacheSize", "0"), out ulong l2kb) ? l2kb : null,
+                            L3CacheSizeKB = ulong.TryParse(WmiHelper.GetProperty(obj, "L3CacheSize", "0"), out ulong l3kb) ? l3kb : null
                         });
                     },
                     error => hardwareInfo.ProcessorErrorMessage = error
@@ -45,45 +46,55 @@ namespace DiagnosticToolAllInOne.Collectors
 
                 // --- Memory Info ---
                 hardwareInfo.Memory = new MemoryInfo();
-                string? totalVisibleMemKBStr = null; // Renamed variable
-                string? freePhysicalMemKBStr = null; // Renamed variable
+                string? totalVisibleMemKBStr = null;
+                string? freePhysicalMemKBStr = null;
                 WmiHelper.ProcessWmiResults(
                     WmiHelper.Query("Win32_OperatingSystem", new[] { "TotalVisibleMemorySize", "FreePhysicalMemory" }, WMI_CIMV2),
-                    obj => {
+                    obj =>
+                    {
                         totalVisibleMemKBStr = WmiHelper.GetProperty(obj, "TotalVisibleMemorySize");
                         freePhysicalMemKBStr = WmiHelper.GetProperty(obj, "FreePhysicalMemory");
                     },
-                    error => hardwareInfo.AddSpecificError("MemoryOS", error)
+                    error => hardwareInfo.AddSpecificError("MemoryOS_WMI", error)
                 );
 
                 if (hardwareInfo.Memory != null)
                 {
-                    // Store raw value first
-                    if (ulong.TryParse(totalVisibleMemKBStr, out ulong totalKB))
+                    if (ulong.TryParse(totalVisibleMemKBStr, out ulong totalKB) && totalKB > 0)
                     {
-                         hardwareInfo.Memory.TotalVisibleMemoryKB = totalKB; // Store raw value
+                        hardwareInfo.Memory.TotalVisibleMemoryKB = totalKB;
+
+                        if (ulong.TryParse(freePhysicalMemKBStr, out ulong freeKB))
+                        {
+                            hardwareInfo.Memory.AvailableMemoryKB = freeKB;
+                            ulong usedKB = totalKB > freeKB ? totalKB - freeKB : 0;
+                            hardwareInfo.Memory.PercentUsed = (double)usedKB / totalKB * 100.0;
+                        }
+                        else
+                        {
+                             hardwareInfo.AddSpecificError("MemoryCalc", "Failed to parse FreePhysicalMemory from WMI.");
+                             hardwareInfo.Memory.AvailableMemoryKB = null;
+                             hardwareInfo.Memory.PercentUsed = null;
+                        }
+                    }
+                    else if (!(hardwareInfo.SpecificCollectionErrors?.ContainsKey("MemoryOS_WMI") ?? false))
+                    {
+                        hardwareInfo.AddSpecificError("MemoryCalc", "Failed to parse TotalVisibleMemorySize from WMI or value was zero.");
+                        hardwareInfo.Memory.TotalVisibleMemoryKB = null;
+                        hardwareInfo.Memory.AvailableMemoryKB = null;
+                        hardwareInfo.Memory.PercentUsed = null;
                     }
 
-                    if (totalKB > 0 && ulong.TryParse(freePhysicalMemKBStr, out ulong freeKB))
-                    {
-                        ulong usedKB = totalKB > freeKB ? totalKB - freeKB : 0;
-                        hardwareInfo.Memory.TotalVisible = FormatHelper.FormatBytes(totalKB * 1024);
-                        hardwareInfo.Memory.Available = FormatHelper.FormatBytes(freeKB * 1024);
-                        hardwareInfo.Memory.Used = FormatHelper.FormatBytes(usedKB * 1024);
-                        hardwareInfo.Memory.PercentUsed = totalKB > 0 ? (double)usedKB / totalKB * 100.0 : 0;
-                    } else if (!(hardwareInfo.SpecificCollectionErrors?.ContainsKey("MemoryOS") ?? false)){
-                        hardwareInfo.AddSpecificError("MemoryCalc", "Failed to parse memory values from WMI.");
-                    }
-
-                    // Physical Modules (No changes needed here)
+                    // Physical Modules
                     WmiHelper.ProcessWmiResults(
                         WmiHelper.Query("Win32_PhysicalMemory", null, WMI_CIMV2),
-                        obj => {
+                        obj =>
+                        {
                             hardwareInfo.Memory.Modules ??= new List<MemoryModuleInfo>();
                             hardwareInfo.Memory.Modules.Add(new MemoryModuleInfo
                             {
                                 DeviceLocator = WmiHelper.GetProperty(obj, "DeviceLocator"),
-                                Capacity = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "Capacity", "0"))),
+                                CapacityBytes = ulong.TryParse(WmiHelper.GetProperty(obj, "Capacity", "0"), out ulong capBytes) ? capBytes : null,
                                 SpeedMHz = uint.TryParse(WmiHelper.GetProperty(obj, "Speed"), out uint speed) ? speed : null,
                                 MemoryType = FormatHelper.GetMemoryTypeDescription(WmiHelper.GetProperty(obj, "MemoryType")),
                                 FormFactor = FormatHelper.GetFormFactorDescription(WmiHelper.GetProperty(obj, "FormFactor")),
@@ -92,195 +103,338 @@ namespace DiagnosticToolAllInOne.Collectors
                                 PartNumber = WmiHelper.GetProperty(obj, "PartNumber")
                             });
                         },
-                         error => hardwareInfo.AddSpecificError("MemoryModules", error)
+                        error => hardwareInfo.AddSpecificError("MemoryModules_WMI", error)
                     );
-                } else {
-                     hardwareInfo.AddSpecificError("MemoryObject", "MemoryInfo object could not be initialized.");
+                     if((hardwareInfo.Memory.Modules == null || !hardwareInfo.Memory.Modules.Any()) && !(hardwareInfo.SpecificCollectionErrors?.ContainsKey("MemoryModules_WMI") ?? false))
+                     {
+                         hardwareInfo.AddSpecificError("MemoryModules_NotFound", "WMI query succeeded but returned no physical memory modules.");
+                     }
+                }
+                else
+                {
+                    hardwareInfo.AddSpecificError("MemoryObject_Init", "MemoryInfo object could not be initialized.");
                 }
 
 
                 // --- Physical Disk Info ---
-                hardwareInfo.PhysicalDisks = new();
-                 WmiHelper.ProcessWmiResults(
-                    WmiHelper.Query("Win32_DiskDrive", null, WMI_CIMV2),
-                    obj => {
-                        uint diskIndex = uint.Parse(WmiHelper.GetProperty(obj, "Index", "999"));
-                        string diskStatus = WmiHelper.GetProperty(obj, "Status");
-                        ulong sizeBytes = ulong.Parse(WmiHelper.GetProperty(obj, "Size", "0")); // Get raw bytes
+                hardwareInfo.PhysicalDisks = new List<PhysicalDiskInfo>(); // Initialize
+                WmiHelper.ProcessWmiResults(
+                   WmiHelper.Query("Win32_DiskDrive", null, WMI_CIMV2),
+                   obj =>
+                   {
+                       uint diskIndex = uint.Parse(WmiHelper.GetProperty(obj, "Index", "999"));
+                       string diskStatus = WmiHelper.GetProperty(obj, "Status");
+                       ulong sizeBytes = ulong.TryParse(WmiHelper.GetProperty(obj, "Size", "0"), out ulong sizeB) ? sizeB : 0;
+                       string interfaceType = WmiHelper.GetProperty(obj, "InterfaceType");
+                       string model = WmiHelper.GetProperty(obj, "Model");
 
-                        var disk = new PhysicalDiskInfo
-                        {
-                            Index = diskIndex,
-                            Model = WmiHelper.GetProperty(obj, "Model"),
-                            MediaType = WmiHelper.GetProperty(obj, "MediaType"),
-                            InterfaceType = WmiHelper.GetProperty(obj, "InterfaceType"),
-                            SizeBytes = sizeBytes, // Store raw bytes
-                            Size = FormatHelper.FormatBytes(sizeBytes), // Format for display
-                            Partitions = uint.TryParse(WmiHelper.GetProperty(obj, "Partitions"), out uint parts) ? parts : null,
-                            SerialNumber = WmiHelper.GetProperty(obj, "SerialNumber", isAdmin ? "N/A" : "Requires Admin"),
-                            Status = diskStatus,
-                            SmartStatus = GetSmartStatus(diskIndex, isAdmin, diskStatus)
-                        };
-                        hardwareInfo.PhysicalDisks.Add(disk);
-                    },
-                    error => hardwareInfo.PhysicalDiskErrorMessage = error
-                 );
+                       string serialNumber = WmiHelper.GetProperty(obj, "SerialNumber", isAdmin ? "N/A" : "Requires Admin");
+                       if (serialNumber == "Requires Admin")
+                       {
+                           hardwareInfo.AddSpecificError($"PhysicalDisk_{diskIndex}_Serial", "Requires Admin");
+                       }
 
-                 // --- TODO: Add logic here to map SystemDrive to PhysicalDiskInfo.IsSystemDisk ---
-                 // This requires more complex WMI queries (Win32_LogicalDiskToPartition, Win32_DiskDriveToDiskPartition)
-                 // For now, analysis engine will need to approximate using LogicalDisk or note the limitation.
+                       var disk = new PhysicalDiskInfo
+                       {
+                           Index = diskIndex,
+                           Model = model,
+                           MediaType = WmiHelper.GetProperty(obj, "MediaType"),
+                           InterfaceType = interfaceType,
+                           SizeBytes = sizeBytes > 0 ? sizeBytes : null,
+                           Partitions = uint.TryParse(WmiHelper.GetProperty(obj, "Partitions"), out uint parts) ? parts : null,
+                           SerialNumber = serialNumber,
+                           Status = diskStatus,
+                           // NOTE: IsSystemDisk is NOT set here. It needs to be set after SystemInfo is collected.
+                           IsSystemDisk = null,
+                           SmartStatus = GetSmartStatus(diskIndex, isAdmin, diskStatus, interfaceType, model, hardwareInfo)
+                       };
+                       hardwareInfo.PhysicalDisks.Add(disk);
+                   },
+                   error => hardwareInfo.PhysicalDiskErrorMessage = error
+                );
+
+                // --- REMOVED: System Disk Mapping Logic ---
+                // This logic requires SystemInfo data which is not available here.
+                // It should be performed after all collections are complete, e.g., in Program.cs.
 
 
                 // --- Logical Disk Info ---
-                hardwareInfo.LogicalDisks = new();
+                hardwareInfo.LogicalDisks = new List<LogicalDiskInfo>(); // Initialize
                 WmiHelper.ProcessWmiResults(
                     WmiHelper.Query("Win32_LogicalDisk", null, WMI_CIMV2, "DriveType=3"),
-                    obj => {
+                    obj =>
+                    {
                         string sizeStr = WmiHelper.GetProperty(obj, "Size", "0");
                         string freeStr = WmiHelper.GetProperty(obj, "FreeSpace", "0");
                         ulong size = 0;
                         ulong free = 0;
-                        double percentFree = 0;
-                        if (ulong.TryParse(sizeStr, out size) && ulong.TryParse(freeStr, out free) && size > 0)
+                        double? percentFree = null;
+                        if (ulong.TryParse(sizeStr, out size) && size > 0 && ulong.TryParse(freeStr, out free))
                         { percentFree = (double)free / size * 100.0; }
 
                         hardwareInfo.LogicalDisks.Add(new LogicalDiskInfo
                         {
-                             DeviceID = WmiHelper.GetProperty(obj, "DeviceID"),
-                             VolumeName = WmiHelper.GetProperty(obj, "VolumeName"),
-                             FileSystem = WmiHelper.GetProperty(obj, "FileSystem"),
-                             SizeBytes = size, // Store raw bytes
-                             FreeSpaceBytes = free, // Store raw bytes
-                             Size = FormatHelper.FormatBytes(size),
-                             FreeSpace = FormatHelper.FormatBytes(free),
-                             PercentFree = percentFree
+                            DeviceID = WmiHelper.GetProperty(obj, "DeviceID"),
+                            VolumeName = WmiHelper.GetProperty(obj, "VolumeName"),
+                            FileSystem = WmiHelper.GetProperty(obj, "FileSystem"),
+                            SizeBytes = size > 0 ? size : null,
+                            FreeSpaceBytes = free,
+                            PercentFree = percentFree
                         });
                     },
                      error => hardwareInfo.LogicalDiskErrorMessage = error
                 );
+                 if ((hardwareInfo.LogicalDisks == null || !hardwareInfo.LogicalDisks.Any()) && !(hardwareInfo.SpecificCollectionErrors?.ContainsKey("LogicalDisk") ?? false))
+                 {
+                      hardwareInfo.AddSpecificError("LogicalDisk_NotFound", "WMI query succeeded but returned no logical disks (DriveType=3).");
+                 }
 
 
-                // --- Volume Info --- (No changes needed here)
-                hardwareInfo.Volumes = new();
-                 WmiHelper.ProcessWmiResults(
-                    WmiHelper.Query("Win32_Volume", new[] { "Name", "DeviceID", "DriveLetter", "FileSystem", "Capacity", "FreeSpace" }, WMI_CIMV2, "DriveType=3"),
-                    obj => {
-                        string? deviceID = WmiHelper.GetProperty(obj, "DeviceID");
-                        string? protectionStatus = GetBitLockerStatus(deviceID, isAdmin);
-                        hardwareInfo.Volumes.Add(new VolumeInfo
-                        {
-                             Name = WmiHelper.GetProperty(obj, "Name"),
-                             DeviceID = deviceID,
-                             DriveLetter = WmiHelper.GetProperty(obj, "DriveLetter"),
-                             FileSystem = WmiHelper.GetProperty(obj, "FileSystem"),
-                             Capacity = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "Capacity", "0"))),
-                             FreeSpace = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "FreeSpace", "0"))),
-                             IsBitLockerProtected = protectionStatus?.Contains("Protection On", StringComparison.OrdinalIgnoreCase),
-                             ProtectionStatus = protectionStatus
-                        });
-                    },
-                     error => hardwareInfo.VolumeErrorMessage = error
+                // --- Volume Info ---
+                hardwareInfo.Volumes = new List<VolumeInfo>(); // Initialize
+                WmiHelper.ProcessWmiResults(
+                   WmiHelper.Query("Win32_Volume", new[] { "Name", "DeviceID", "DriveLetter", "FileSystem", "Capacity", "FreeSpace" }, WMI_CIMV2, "DriveType=3"),
+                   obj =>
+                   {
+                       string? deviceID = WmiHelper.GetProperty(obj, "DeviceID");
+                       string? protectionStatus = GetBitLockerStatus(deviceID, isAdmin, hardwareInfo);
+                       hardwareInfo.Volumes.Add(new VolumeInfo
+                       {
+                           Name = WmiHelper.GetProperty(obj, "Name"),
+                           DeviceID = deviceID,
+                           DriveLetter = WmiHelper.GetProperty(obj, "DriveLetter"),
+                           FileSystem = WmiHelper.GetProperty(obj, "FileSystem"),
+                           CapacityBytes = ulong.TryParse(WmiHelper.GetProperty(obj, "Capacity", "0"), out ulong capBytes) ? capBytes : null,
+                           FreeSpaceBytes = ulong.TryParse(WmiHelper.GetProperty(obj, "FreeSpace", "0"), out ulong freeBytes) ? freeBytes : null,
+                           IsBitLockerProtected = protectionStatus?.Contains("Protection On", StringComparison.OrdinalIgnoreCase),
+                           ProtectionStatus = protectionStatus
+                       });
+                   },
+                    error => hardwareInfo.VolumeErrorMessage = error
                 );
+                if ((hardwareInfo.Volumes == null || !hardwareInfo.Volumes.Any()) && !(hardwareInfo.SpecificCollectionErrors?.ContainsKey("Volume") ?? false))
+                {
+                     hardwareInfo.AddSpecificError("Volume_NotFound", "WMI query succeeded but returned no volumes (DriveType=3).");
+                }
 
 
                 // --- GPU Info ---
-                hardwareInfo.Gpus = new();
+                hardwareInfo.Gpus = new List<GpuInfo>(); // Initialize
                 WmiHelper.ProcessWmiResults(
                     WmiHelper.Query("Win32_VideoController", null, WMI_CIMV2),
-                    obj => {
-                         uint.TryParse(WmiHelper.GetProperty(obj, "CurrentHorizontalResolution"), out uint horizRes);
-                         uint.TryParse(WmiHelper.GetProperty(obj, "CurrentVerticalResolution"), out uint vertRes);
+                    obj =>
+                    {
+                        uint.TryParse(WmiHelper.GetProperty(obj, "CurrentHorizontalResolution"), out uint horizRes);
+                        uint.TryParse(WmiHelper.GetProperty(obj, "CurrentVerticalResolution"), out uint vertRes);
+                        uint.TryParse(WmiHelper.GetProperty(obj, "CurrentRefreshRate"), out uint refreshRate);
 
-                        hardwareInfo.Gpus.Add(new GpuInfo {
-                             Name = WmiHelper.GetProperty(obj, "Name"),
-                             Vram = FormatHelper.FormatBytes(ulong.Parse(WmiHelper.GetProperty(obj, "AdapterRAM", "0"))),
-                             DriverVersion = WmiHelper.GetProperty(obj, "DriverVersion"),
-                             DriverDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "DriverDate")),
-                             VideoProcessor = WmiHelper.GetProperty(obj, "VideoProcessor"),
-                             CurrentHorizontalResolution = horizRes, // Store raw value
-                             CurrentVerticalResolution = vertRes,   // Store raw value
-                             CurrentResolution = $"{horizRes}x{vertRes} @ {WmiHelper.GetProperty(obj, "CurrentRefreshRate")} Hz", // Formatted
-                             Status = WmiHelper.GetProperty(obj, "Status")
-                         });
+                        hardwareInfo.Gpus.Add(new GpuInfo
+                        {
+                            Name = WmiHelper.GetProperty(obj, "Name"),
+                            AdapterRAMBytes = ulong.TryParse(WmiHelper.GetProperty(obj, "AdapterRAM", "0"), out ulong ramBytes) ? ramBytes : null,
+                            DriverVersion = WmiHelper.GetProperty(obj, "DriverVersion"),
+                            DriverDate = WmiHelper.ConvertCimDateTime(WmiHelper.GetProperty(obj, "DriverDate")),
+                            VideoProcessor = WmiHelper.GetProperty(obj, "VideoProcessor"),
+                            CurrentHorizontalResolution = horizRes > 0 ? horizRes : null,
+                            CurrentVerticalResolution = vertRes > 0 ? vertRes : null,
+                            CurrentRefreshRate = refreshRate > 0 ? refreshRate : null,
+                            Status = WmiHelper.GetProperty(obj, "Status"),
+                            WddmVersion = WmiHelper.GetProperty(obj,"WddmVersion", null)
+                        });
                     },
                     error => hardwareInfo.GpuErrorMessage = error
                  );
 
 
                 // --- Monitor Info ---
-                hardwareInfo.Monitors = new();
-                 WmiHelper.ProcessWmiResults(
-                    WmiHelper.Query("Win32_DesktopMonitor", null, WMI_CIMV2), // Basic info
-                    obj => {
-                         uint.TryParse(WmiHelper.GetProperty(obj, "ScreenWidth"), out uint screenW);
-                         uint.TryParse(WmiHelper.GetProperty(obj, "ScreenHeight"), out uint screenH);
+                hardwareInfo.Monitors = new List<MonitorInfo>(); // Initialize
+                WmiHelper.ProcessWmiResults(
+                   WmiHelper.Query("Win32_DesktopMonitor", null, WMI_CIMV2),
+                   obj =>
+                   {
+                       uint.TryParse(WmiHelper.GetProperty(obj, "ScreenWidth"), out uint screenW);
+                       uint.TryParse(WmiHelper.GetProperty(obj, "ScreenHeight"), out uint screenH);
+                       uint.TryParse(WmiHelper.GetProperty(obj, "PixelsPerXLogicalInch"), out uint ppiX);
+                       uint.TryParse(WmiHelper.GetProperty(obj, "PixelsPerYLogicalInch"), out uint ppiY);
 
-                        hardwareInfo.Monitors.Add(new MonitorInfo {
-                            Name = WmiHelper.GetProperty(obj, "Name"),
-                            DeviceID = WmiHelper.GetProperty(obj, "DeviceID"),
-                            Manufacturer = WmiHelper.GetProperty(obj, "MonitorManufacturer"),
-                            ScreenWidth = screenW, // Store raw value
-                            ScreenHeight = screenH, // Store raw value
-                            ReportedResolution = $"{screenW}x{screenH}", // Formatted
-                            PpiLogical = $"{WmiHelper.GetProperty(obj, "PixelsPerXLogicalInch")}x{WmiHelper.GetProperty(obj, "PixelsPerYLogicalInch")}"
-                        });
-                    },
-                     error => hardwareInfo.MonitorErrorMessage = error
-                );
-                 // --- TODO: Potentially add WMI query to root\wmi for WmiMonitorBasicDisplayParams for size ---
-                 // This is often unreliable or requires Admin privileges.
+                       double? diagonal = null;
+                       if (screenW > 0 && screenH > 0 && ppiX > 0)
+                       {
+                           double widthInches = (double)screenW / ppiX;
+                           double heightInches = (double)screenH / ppiX;
+                           diagonal = Math.Sqrt(widthInches * widthInches + heightInches * heightInches);
+                       }
+
+                       hardwareInfo.Monitors.Add(new MonitorInfo
+                       {
+                           Name = WmiHelper.GetProperty(obj, "Name"),
+                           DeviceID = WmiHelper.GetProperty(obj, "DeviceID"),
+                           PnpDeviceID = WmiHelper.GetProperty(obj, "PNPDeviceID"),
+                           Manufacturer = WmiHelper.GetProperty(obj, "MonitorManufacturer"),
+                           ScreenWidth = screenW > 0 ? screenW : null,
+                           ScreenHeight = screenH > 0 ? screenH : null,
+                           PixelsPerXLogicalInch = ppiX > 0 ? ppiX : null,
+                           PixelsPerYLogicalInch = ppiY > 0 ? ppiY : null,
+                           DiagonalSizeInches = diagonal
+                       });
+                   },
+                    error => hardwareInfo.MonitorErrorMessage = error
+               );
 
 
-                // --- Audio Devices --- (No changes needed here)
-                hardwareInfo.AudioDevices = new();
+                // --- Audio Devices ---
+                hardwareInfo.AudioDevices = new List<AudioDeviceInfo>(); // Initialize
                 WmiHelper.ProcessWmiResults(
                     WmiHelper.Query("Win32_SoundDevice", null, WMI_CIMV2),
-                    obj => {
-                         hardwareInfo.AudioDevices.Add(new AudioDeviceInfo {
+                    obj =>
+                    {
+                        hardwareInfo.AudioDevices.Add(new AudioDeviceInfo
+                        {
                             Name = WmiHelper.GetProperty(obj, "Name"),
                             ProductName = WmiHelper.GetProperty(obj, "ProductName"),
                             Manufacturer = WmiHelper.GetProperty(obj, "Manufacturer"),
-                            Status = WmiHelper.GetProperty(obj, "StatusInfo")
-                         });
+                            Status = WmiHelper.GetProperty(obj, "Status")
+                        });
                     },
                     error => hardwareInfo.AudioErrorMessage = error
                  );
+                 if ((hardwareInfo.AudioDevices == null || !hardwareInfo.AudioDevices.Any()) && !(hardwareInfo.SpecificCollectionErrors?.ContainsKey("Audio") ?? false))
+                 {
+                      hardwareInfo.AddSpecificError("Audio_NotFound", "WMI query succeeded but returned no sound devices.");
+                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                 Console.Error.WriteLine($"[CRITICAL ERROR] Failed during Hardware Info Collection setup: {ex.Message}");
-                 hardwareInfo.SectionCollectionErrorMessage = $"Critical failure during hardware collection: {ex.Message}";
+                Logger.LogError($"[CRITICAL ERROR] Failed during Hardware Info Collection setup", ex);
+                hardwareInfo.SectionCollectionErrorMessage = $"Critical failure during hardware collection: {ex.Message}";
             }
 
             await Task.CompletedTask;
             return hardwareInfo;
         }
 
-        // Helper methods GetSmartStatus and GetBitLockerStatus remain the same
-        private static SmartStatusInfo GetSmartStatus(uint diskIndex, bool isAdmin, string diskDriveStatus)
+        // --- GetSmartStatus and GetBitLockerStatus Methods ---
+        // (These remain unchanged from the previous corrected version)
+
+        private static SmartStatusInfo GetSmartStatus(uint diskIndex, bool isAdmin, string diskDriveStatus, string interfaceType, string model, HardwareInfo hardwareInfo)
         {
             var status = new SmartStatusInfo { StatusText = "Unknown", BasicStatusFromDiskDrive = diskDriveStatus };
-            if (!isAdmin) { status.StatusText = "Requires Admin"; status.Error = "Requires Admin privileges for WMI SMART query."; return status; }
+            string errorKey = $"PhysicalDisk_{diskIndex}_SMART"; // Key for specific errors
+
+            if (!isAdmin)
+            {
+                status.StatusText = "Requires Admin";
+                status.Error = "Requires Admin privileges for WMI SMART query.";
+                hardwareInfo.AddSpecificError(errorKey, "Requires Admin");
+                return status;
+            }
+
+            bool isLikelyNVMe = interfaceType.Contains("NVME", StringComparison.OrdinalIgnoreCase) ||
+                                interfaceType.Contains("STORAGE_BUS_TYPE.NVME", StringComparison.OrdinalIgnoreCase) ||
+                                model.Contains("NVME", StringComparison.OrdinalIgnoreCase);
+
             string query = $"SELECT PredictFailure, Reason FROM MSStorageDriver_FailurePredictStatus WHERE InstanceName LIKE '%PHYSICALDRIVE{diskIndex}%'";
-            bool foundWmiStatus = false; string? wmiError = null;
-            WmiHelper.ProcessWmiResults( WmiHelper.Query(query, null, WMI_WMI), obj => { foundWmiStatus = true; status.IsFailurePredicted = (bool)obj["PredictFailure"]; status.ReasonCode = obj["Reason"]?.ToString(); status.StatusText = status.IsFailurePredicted ? "Failure Predicted" : "OK"; status.Error = null; }, error => wmiError = error );
-            if (foundWmiStatus) { /* StatusText set in lambda */ }
-            else if (!string.IsNullOrEmpty(wmiError)) { status.Error = wmiError; if (wmiError.Contains("Not supported", StringComparison.OrdinalIgnoreCase) || wmiError.Contains("Invalid namespace", StringComparison.OrdinalIgnoreCase) || wmiError.Contains("Invalid class", StringComparison.OrdinalIgnoreCase)) { status.StatusText = "Not Supported"; status.Error = $"SMART WMI query failed or not supported: {wmiError}"; } else { status.StatusText = "Query Error"; } }
-            else { status.StatusText = "Not Reported"; status.Error = "No SMART data returned via MSStorageDriver_FailurePredictStatus."; }
-            if (status.StatusText != "OK") { if (!string.IsNullOrEmpty(diskDriveStatus) && !diskDriveStatus.Equals("OK", StringComparison.OrdinalIgnoreCase)) { status.StatusText += $" (Basic Status: {diskDriveStatus})"; status.Error = string.IsNullOrEmpty(status.Error) ? $"Basic disk status is '{diskDriveStatus}'." : $"{status.Error}; Basic disk status is '{diskDriveStatus}'."; } }
+            bool foundWmiStatus = false;
+            string? wmiError = null;
+            WmiHelper.ProcessWmiResults(
+                WmiHelper.Query(query, null, WMI_WMI),
+                obj =>
+                {
+                    foundWmiStatus = true;
+                    // FIX CS8625: Check obj["PredictFailure"] is not null before casting
+                    if (obj["PredictFailure"] != null) {
+                        status.IsFailurePredicted = (bool)obj["PredictFailure"];
+                        status.ReasonCode = obj["Reason"]?.ToString(); // ReasonCode is nullable string
+                        status.StatusText = status.IsFailurePredicted ? "Failure Predicted" : "OK";
+                        status.Error = null;
+                    } else {
+                         status.StatusText = "Query Error (Null PredictFailure)";
+                         status.Error = "WMI returned null for PredictFailure property.";
+                         hardwareInfo.AddSpecificError(errorKey, status.Error);
+                    }
+                },
+                error => wmiError = error
+            );
+
+            if (foundWmiStatus && status.Error == null) // Check if error was set during processing
+            {
+                // Status already set
+            }
+            else if (!string.IsNullOrEmpty(wmiError))
+            {
+                status.Error = wmiError;
+                hardwareInfo.AddSpecificError(errorKey, $"Query Error: {wmiError}");
+
+                if (wmiError.Contains("InvalidQuery") || wmiError.Contains("NotFound") || wmiError.Contains("Not supported"))
+                { status.StatusText = isLikelyNVMe ? "Not Supported (NVMe via WMI)" : "Not Supported"; }
+                else if (wmiError.Contains("Invalid namespace") || wmiError.Contains("Invalid class"))
+                { status.StatusText = "Not Supported (WMI Scope)"; }
+                else { status.StatusText = "Query Error"; }
+            }
+             else if (!foundWmiStatus && status.Error == null) // No rows found and no processing error occurred
+            {
+                status.StatusText = "Not Reported";
+                status.Error = "No SMART data returned via MSStorageDriver_FailurePredictStatus.";
+                 hardwareInfo.AddSpecificError(errorKey, status.Error);
+            }
+
+            if (status.StatusText != "OK" && status.StatusText != "Not Supported (NVMe via WMI)")
+            {
+                 if (!string.IsNullOrEmpty(diskDriveStatus) && !diskDriveStatus.Equals("OK", StringComparison.OrdinalIgnoreCase))
+                 {
+                      status.StatusText += $" (Basic Status: {diskDriveStatus})";
+                      status.Error = string.IsNullOrEmpty(status.Error) ? $"Basic disk status is '{diskDriveStatus}'." : $"{status.Error}; Basic disk status is '{diskDriveStatus}'.";
+                 }
+            }
             return status;
         }
-        private static string GetBitLockerStatus(string? volumeDeviceID, bool isAdmin)
+
+        private static string GetBitLockerStatus(string? volumeDeviceID, bool isAdmin, HardwareInfo hardwareInfo)
         {
-            if (!isAdmin) return "Requires Admin"; if (string.IsNullOrEmpty(volumeDeviceID)) return "Invalid Volume ID";
-            string status = "Unknown"; bool found = false; string? queryError = null;
-            try { string escapedDeviceID = volumeDeviceID.Replace(@"\", @"\\").Replace("\"", "\\\""); string condition = $"DeviceID = \"{escapedDeviceID}\"";
-                 WmiHelper.ProcessWmiResults( WmiHelper.Query("Win32_EncryptableVolume", new[] { "DeviceID", "ProtectionStatus" }, WMI_MSVOLENC, condition), mo => { found = true; status = WmiHelper.GetProperty(mo, "ProtectionStatus") switch { "0" => "Protection Off", "1" => "Protection On", "2" => "Protection Unknown", _ => $"Unknown Status Code ({WmiHelper.GetProperty(mo, "ProtectionStatus")})" }; }, error => queryError = error );
+            string errorKey = $"Volume_{(volumeDeviceID?.Replace("\\", "_").Replace("?", "").Replace("{", "").Replace("}", "") ?? "Unknown")}_Bitlocker";
+
+            if (string.IsNullOrEmpty(volumeDeviceID)) return "Invalid Volume ID";
+            if (!isAdmin) { hardwareInfo.AddSpecificError(errorKey, "Requires Admin"); return "Requires Admin"; }
+
+            string status = "Unknown";
+            bool found = false;
+            string? queryError = null;
+
+            try
+            {
+                string escapedDeviceID = volumeDeviceID.Replace(@"\", @"\\").Replace("\"", "\\\"");
+                string condition = $"DeviceID = \"{escapedDeviceID}\"";
+
+                WmiHelper.ProcessWmiResults(
+                   WmiHelper.Query("Win32_EncryptableVolume", new[] { "DeviceID", "ProtectionStatus" }, WMI_MSVOLENC, condition),
+                   mo =>
+                   {
+                       found = true;
+                       status = WmiHelper.GetProperty(mo, "ProtectionStatus") switch {
+                           "0" => "Protection Off", "1" => "Protection On", "2" => "Protection Unknown",
+                           _ => $"Unknown Status Code ({WmiHelper.GetProperty(mo, "ProtectionStatus")})" };
+                   },
+                   error => queryError = error
+               );
+
                 if (!found && queryError == null) { status = "Not Found/Not Encryptable"; }
-                else if (queryError != null) { if (queryError.Contains("Invalid namespace", StringComparison.OrdinalIgnoreCase) || queryError.Contains("Not Found", StringComparison.OrdinalIgnoreCase)) { status = "BitLocker WMI Scope/Class Not Found"; } else if (queryError.Contains("Access Denied", StringComparison.OrdinalIgnoreCase)) { status = "Access Denied (BitLocker Check)"; } else { status = $"Error checking BitLocker: {queryError}"; } }
-            } catch (Exception ex) { status = $"Error checking BitLocker: {ex.GetType().Name}"; Console.Error.WriteLine($"[CRITICAL ERROR] BitLocker Check failed unexpectedly: {ex.Message}"); }
+                else if (queryError != null)
+                {
+                    hardwareInfo.AddSpecificError(errorKey, $"Query Error: {queryError}");
+                    if (queryError.Contains("Invalid namespace") || queryError.Contains("NotFound")) { status = "BitLocker WMI Scope/Class Not Found"; }
+                    else if (queryError.Contains("Access Denied")) { status = "Access Denied (BitLocker Check)"; }
+                    else { status = $"Error checking BitLocker: {queryError}"; }
+                }
+            }
+            catch (Exception ex)
+            {
+                status = $"Error checking BitLocker: {ex.GetType().Name}";
+                hardwareInfo.AddSpecificError(errorKey, $"Unexpected Error: {ex.Message}");
+                Logger.LogError($"[CRITICAL ERROR] BitLocker Check failed unexpectedly for volume {volumeDeviceID}", ex);
+            }
             return status;
         }
+
     }
 }

@@ -1,0 +1,32 @@
+﻿--- Log started at 18/04/2025 4:35:44 PM ---
+[2025-04-18 16:35:44.185] [INFO ] Configuration validated successfully.
+[2025-04-18 16:35:44.188] [INFO ] Configuration loaded successfully from 'web/appsettings.json' or defaults applied.
+[2025-04-18 16:35:44.213] [INFO ] Application starting.
+[2025-04-18 16:35:44.222] [INFO ] Starting data collection for sections: System, Hardware, Software, Security, Performance, Network, Events, Stability, Analysis
+[2025-04-18 16:35:44.234] [INFO ] No recent crash dump files found in standard locations.
+[2025-04-18 16:35:44.280] [WARN ] [WMI HELPER] Error getting WMI result count (Code: InvalidQuery): Invalid query 
+[2025-04-18 16:35:44.282] [WARN ] Failed to query Win32_NetworkAdapter for driver dates: Error getting WMI result count (Code: InvalidQuery): Invalid query 
+[2025-04-18 16:35:44.382] [WARN ] [WMI HELPER] Error getting WMI result count (Code: InvalidClass): Invalid class 
+[2025-04-18 16:35:44.426] [WARN ] Security completed with 1 specific warnings/errors.
+[2025-04-18 16:35:44.431] [WARN ]    - Security Error [Firewall_NotFound]: WMI query succeeded but returned no FirewallProduct instances.
+[2025-04-18 16:35:44.490] [WARN ] System completed with 1 specific warnings/errors.
+[2025-04-18 16:35:44.491] [WARN ]    - System Error [PowerPlan]: WMI Query Error: Error getting WMI result count (Code: InvalidClass): Invalid class 
+[2025-04-18 16:35:44.518] [WARN ] Network completed with 6 specific warnings/errors.
+[2025-04-18 16:35:44.518] [WARN ]    - Network Error [DriverDate_WMI_Error]: Warning: Failed to query Win32_NetworkAdapter: Error getting WMI result count (Code: InvalidQuery): Invalid query 
+[2025-04-18 16:35:44.519] [WARN ]    - Network Error [DriverDate_Tailscale ({37217669-42DA-4657-A55B-0D995D328250})]: Info: Driver date could not be determined via WMI.
+[2025-04-18 16:35:44.519] [WARN ]    - Network Error [DriverDate_VMware Network Adapter VMnet1 ({67E32BE5-9182-413F-81E1-B930FFE85E51})]: Info: Driver date could not be determined via WMI.
+[2025-04-18 16:35:44.519] [WARN ]    - Network Error [DriverDate_VMware Network Adapter VMnet8 ({278E25F3-78AB-478A-B419-6D35544F9B9E})]: Info: Driver date could not be determined via WMI.
+[2025-04-18 16:35:44.519] [WARN ]    - Network Error [DriverDate_Wi-Fi ({74F775D4-577E-4E1F-8B64-952B05C7304D})]: Info: Driver date could not be determined via WMI.
+[2025-04-18 16:35:44.520] [WARN ]    - Network Error [DriverDate_Loopback Pseudo-Interface 1 ({06B64901-7CB1-11EF-8850-806E6F6E6963})]: Info: Driver date could not be determined via WMI.
+[2025-04-18 16:35:45.325] [WARN ] [WMI HELPER] Error getting WMI result count (Code: InvalidQuery): Invalid query 
+[2025-04-18 16:35:45.387] [WARN ] Hardware completed with 1 specific warnings/errors.
+[2025-04-18 16:35:45.387] [WARN ]    - Hardware Error [PhysicalDisk_0_SMART]: Query Error: Error getting WMI result count (Code: InvalidQuery): Invalid query 
+[2025-04-18 16:35:49.561] [WARN ] Access Denied getting initial info for PID 0
+[2025-04-18 16:35:49.574] [WARN ] Access Denied getting initial info for PID 0
+[2025-04-18 16:35:49.578] [INFO ] Data collection phase finished in 5354 ms.
+[2025-04-18 16:35:49.578] [INFO ] Starting analysis phase.
+[2025-04-18 16:35:49.586] [INFO ] Analysis completed in 7 ms.
+[2025-04-18 16:35:49.587] [INFO ] Total execution time: 5366 ms.
+[2025-04-18 16:35:49.589] [INFO ] Handling output. Format: json, File: C:\Users\jack\OneDrive\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Debug\net8.0\Reports\DiagReport_ASUSNB01_20250418_163544.json
+[2025-04-18 16:35:49.691] [INFO ] Report saved to: C:\Users\jack\OneDrive\Documents\GitHub\Advanced-Windows-Diagnostics\bin\Debug\net8.0\Reports\DiagReport_ASUSNB01_20250418_163544.json (Format: json)
+[2025-04-18 16:35:49.692] [INFO ] Application finished with Exit Code: 3.
